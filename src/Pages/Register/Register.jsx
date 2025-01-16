@@ -5,6 +5,7 @@ import Lottie from 'lottie-react';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
+import SocialLogin from '../../Component/SocialLogin/SocialLogin';
 
 const Register = () => {
     const {updateUser,signUpUser}=useAuth()
@@ -14,11 +15,13 @@ const Register = () => {
         register,
         handleSubmit,
         reset,
+        formState: { errors }
         
     } = useForm();
     const onSubmit = data => {
         const { name,email,photo, password } = data
         console.log(name,email,photo, password)
+
         signUpUser(email, password)
         .then((result) => {
             console.log(result.user)
@@ -50,7 +53,7 @@ const Register = () => {
         })
 }
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto py-10">
             <div className="hero  min-h-screen">
                 <div className="hero-content flex-col gap-10 lg:flex-row">
                     <div className="text-center lg:text-left">
@@ -81,16 +84,22 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input {...register("password")} type="password" placeholder="password" className="input input-bordered rounded-none" required />
+                                <input {...register("password", {
+                                    required: true, pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/
+                                })} type="password" placeholder="password" className="input input-bordered rounded-none" required />
+                                {errors.password && <span className="text-red-600 mt-2">Password should contain at least one special character,one uppercase,one lowercase,one number and 6 characters</span>}
 
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-success rounded-none ">Login</button>
+                                <button className="btn btn-success rounded-none text-white">Sign-Up</button>
                             </div>
-                            
-                            <p className='text-center mb-5'><small >Already registered?<Link className='text-blue-700' to={"/login"} > Go to log in </Link></small></p>
 
                         </form>
+                            <div className='p-8 pt-0'>
+                            <SocialLogin></SocialLogin>
+                            
+                            <p className='text-center text-lg mb-5'><small >Already registered?<Link className='text-blue-700' to={"/login"} > Go to log in </Link></small></p>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -99,3 +108,12 @@ const Register = () => {
 };
 
 export default Register;
+
+
+
+
+
+
+
+
+

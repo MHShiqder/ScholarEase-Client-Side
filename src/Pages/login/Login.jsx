@@ -4,6 +4,7 @@ import loginLottie from '../../Lottie/Login.json'
 import Lottie from 'lottie-react';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../Component/SocialLogin/SocialLogin';
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
@@ -25,10 +26,10 @@ const Login = () => {
                 });
                 navigate(from, { replace: true });
             })
-            .catch(error=>console.log(error))
+            .catch(error => console.log(error))
     };
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto py-10">
             <div className="hero  min-h-screen">
                 <div className="hero-content flex-col gap-20 lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
@@ -53,12 +54,13 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-success
-                                 rounded-none">Login</button>
+                                 rounded-none text-white">Login</button>
                             </div>
-
-                            <p className='text-center mb-5'><small >New here?<Link className='text-blue-700' to={"/register"} > Go to sign up </Link></small></p>
-
                         </form>
+                        <div className='p-8 pt-0'>
+                            <SocialLogin></SocialLogin>
+                            <p className='text-center text-lg mb-5'><small >New here?<Link className='text-blue-700' to={"/register"} > Go to sign up </Link></small></p>
+                        </div>
                     </div>
                 </div>
             </div>
