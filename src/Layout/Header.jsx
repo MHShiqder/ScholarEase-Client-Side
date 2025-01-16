@@ -1,14 +1,28 @@
 import { NavLink } from "react-router-dom";
 import navLogo from '../assets/NavLogo.png'
+import useAuth from "../Hooks/useAuth";
 
 
 const Header = () => {
+    const { user, signOutUser } = useAuth()
     const links = <>
         <li><NavLink to='/' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Home</NavLink></li>
-        
+
+        {
+            user
+                ?
+                <>
+                    <li onClick={() => { signOutUser() }}><NavLink to='' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Logout</NavLink></li>
+                </>
+                :
+                <>
+                    <li><NavLink to='/login' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Login</NavLink></li>
+                </>
+        }
+
     </>
     return (
-        <div className="sticky bg-[#191A19] bg-opacity-80 top-0 z-50">
+        <div className="sticky bg-[#191A19] bg-opacity-60 top-0 z-50">
             <div className="navbar w-11/12 mx-auto  text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
