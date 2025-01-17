@@ -8,6 +8,8 @@ import AllScholarship from "../Pages/AllScholarship/AllScholarship";
 import AdminDashboard from "../Layout/AdminDashboard";
 import UserDashboard from "../Layout/UserDashboard";
 import AddScholarship from "../Pages/AddScholarship/AddScholarship";
+import DetailsPage from "../Pages/DetailsPage/DetailsPage";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -25,27 +27,31 @@ const router = createBrowserRouter([
             },
             {
                 path: '/register',
-                element: <Register></Register> ,
+                element: <Register></Register>,
             },
             {
                 path: '/all-scholarship',
-                element: <AllScholarship></AllScholarship> ,
+                element: <AllScholarship></AllScholarship>,
+            },
+            {
+                path: '/details/:id',
+                element: <PrivateRoutes><DetailsPage></DetailsPage></PrivateRoutes>,
             },
         ],
     },
     // user dashboard 
     {
-        path:'/userDashboard',
-        element:<UserDashboard></UserDashboard>
+        path: '/userDashboard',
+        element: <UserDashboard></UserDashboard>
     },
     // admin dashboard 
     {
-        path:'/adminDashboard',
-        element:<AdminDashboard></AdminDashboard>,
-        children:[
+        path: '/adminDashboard',
+        element: <AdminDashboard></AdminDashboard>,
+        children: [
             {
-                path:'add-scholarship',
-                element:<AddScholarship></AddScholarship>
+                path: 'add-scholarship',
+                element: <AddScholarship></AddScholarship>
             }
         ]
     },
