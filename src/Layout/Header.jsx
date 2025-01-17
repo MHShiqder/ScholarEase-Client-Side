@@ -8,6 +8,13 @@ const Header = () => {
     const links = <>
         <li><NavLink to='/' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Home</NavLink></li>
 
+        <li><NavLink to='/all-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>All_Scholarship</NavLink></li>
+
+        <li><NavLink to='/userDashboard' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>User_Dashboard</NavLink></li>
+
+        <li><NavLink to='/adminDashboard/add-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Admin_Dashboard</NavLink></li>
+
+
         {
             user
                 ?
@@ -22,7 +29,7 @@ const Header = () => {
 
     </>
     return (
-        <div className="sticky bg-[#191A19] bg-opacity-60 top-0 z-50">
+        <div className="sticky bg-[#123524]  bg-opacity-90 top-0 z-50">
             <div className="navbar w-11/12 mx-auto  text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -42,7 +49,7 @@ const Header = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className=" menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className=" menu-sm dropdown-content bg-[#123524]  bg-opacity-90 rounded-box z-[1] mt-3 w-52 p-2  shadow flex flex-col gap-3">
                             {links}
                         </ul>
                     </div>

@@ -2,7 +2,7 @@ import { FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
 import logo from '../assets/NavLogo.png'
 const Footer = () => {
     return (
-        <div className="bg-neutral ">
+        <div className="bg-[#123524] ">
             <footer className="footer flex flex-col items-center  w-11/12 mx-auto text-neutral-content py-10">
                 <aside>
                     <img className='h-24 ' src={logo} alt="" />

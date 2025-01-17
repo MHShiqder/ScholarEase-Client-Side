@@ -4,6 +4,10 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/login/Login";
 import Register from "../Pages/Register/Register";
+import AllScholarship from "../Pages/AllScholarship/AllScholarship";
+import AdminDashboard from "../Layout/AdminDashboard";
+import UserDashboard from "../Layout/UserDashboard";
+import AddScholarship from "../Pages/AddScholarship/AddScholarship";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +27,27 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register> ,
             },
+            {
+                path: '/all-scholarship',
+                element: <AllScholarship></AllScholarship> ,
+            },
         ],
+    },
+    // user dashboard 
+    {
+        path:'/userDashboard',
+        element:<UserDashboard></UserDashboard>
+    },
+    // admin dashboard 
+    {
+        path:'/adminDashboard',
+        element:<AdminDashboard></AdminDashboard>,
+        children:[
+            {
+                path:'add-scholarship',
+                element:<AddScholarship></AddScholarship>
+            }
+        ]
     },
 ]);
 
