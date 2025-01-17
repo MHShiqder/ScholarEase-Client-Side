@@ -6,24 +6,24 @@ import useAuth from "../Hooks/useAuth";
 const Header = () => {
     const { user, signOutUser } = useAuth()
     const links = <>
-        <li><NavLink to='/' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Home</NavLink></li>
+        <li><NavLink to='/' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Home</NavLink></li>
 
-        <li><NavLink to='/all-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>All_Scholarship</NavLink></li>
+        <li><NavLink to='/all-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>All_Scholarship</NavLink></li>
 
-        <li><NavLink to='/userDashboard' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>User_Dashboard</NavLink></li>
+        <li><NavLink to='/userDashboard' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>User_Dashboard</NavLink></li>
 
-        <li><NavLink to='/adminDashboard/add-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Admin_Dashboard</NavLink></li>
+        <li><NavLink to='/adminDashboard/add-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Admin_Dashboard</NavLink></li>
 
 
         {
             user
                 ?
                 <>
-                    <li onClick={() => { signOutUser() }}><NavLink to='' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Logout</NavLink></li>
+                    <li onClick={() => { signOutUser() }}><NavLink to='' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Logout</NavLink></li>
                 </>
                 :
                 <>
-                    <li><NavLink to='/login' className={'text-base text-white   hover:border-b-2 hover:border-green-400 ml-6 font-serif px-3 py-1 rounded-3xl'}>Login</NavLink></li>
+                    <li><NavLink to='/login' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Login</NavLink></li>
                 </>
         }
 

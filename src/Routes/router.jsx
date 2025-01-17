@@ -37,6 +37,10 @@ const router = createBrowserRouter([
                 path: '/details/:id',
                 element: <PrivateRoutes><DetailsPage></DetailsPage></PrivateRoutes>,
             },
+            {
+                path: '/payment/:id',
+                element: <PrivateRoutes><DetailsPage></DetailsPage></PrivateRoutes>,
+            },
         ],
     },
     // user dashboard 

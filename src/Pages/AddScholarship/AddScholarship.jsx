@@ -70,6 +70,8 @@ const AddScholarship = () => {
                 />
                 <input required type="text"  {...register("city")} id="name" placeholder=" University city" className={style}
                 />
+                <textarea required type="number" min={1} max={1500} {...register("details")} id="name" placeholder=" Scholarship Details" className={style+"h-24 md:col-span-2"}
+                />
                 <input required type="number" min={1} max={1500} {...register("rank")} id="name" placeholder=" University World Rank" className={style}
                 />
                 <select required defaultValue={"default"}  {...register("subject")} className={style}>
