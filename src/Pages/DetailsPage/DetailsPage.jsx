@@ -13,7 +13,7 @@ const DetailsPage = () => {
             return result.data;
         }
     })
-    const { applicationFee, category, city, country, deadline, degree, email, postDate, rank, scholarship: scholarshipName, serviceCharge, subject, _id, university, imageUrl, details } = scholarship;
+    const { applicationFee, category, city, country, deadline,  postDate, rank, scholarship: scholarshipName, serviceCharge, subject, _id, university, imageUrl, details } = scholarship;
     return (
         <div>
             {

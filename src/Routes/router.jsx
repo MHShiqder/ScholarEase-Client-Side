@@ -10,6 +10,7 @@ import UserDashboard from "../Layout/UserDashboard";
 import AddScholarship from "../Pages/AddScholarship/AddScholarship";
 import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 import PrivateRoutes from "./PrivateRoutes";
+import Payment from "../Pages/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/payment/:id',
-                element: <PrivateRoutes><DetailsPage></DetailsPage></PrivateRoutes>,
+                element: <PrivateRoutes><Payment></Payment></PrivateRoutes>,
             },
         ],
     },
