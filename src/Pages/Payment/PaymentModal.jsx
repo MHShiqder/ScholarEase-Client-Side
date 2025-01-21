@@ -12,7 +12,7 @@ const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageKey}`;
 
 
 const PaymentModal = ({ info }) => { 
-    const { university, subject, category, id,city,country,applicationFee,serviceCharge } = info
+    const { university, subject, category, id,city,country,applicationFee,serviceCharge,scholarshipName } = info
     const navigate=useNavigate()
     // retrieving the current user info from database 
     const {user:currentUser}=useAuth()
@@ -58,6 +58,7 @@ const PaymentModal = ({ info }) => {
             universityAddress:city+", "+country,
             applicationFee,
             serviceCharge,
+            scholarshipName:scholarshipName
         }
         
         axiosPublic.post('/appliedScholarship', modalInfo)

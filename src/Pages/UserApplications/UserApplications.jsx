@@ -5,10 +5,11 @@ import { FaEdit, FaInfoCircle } from "react-icons/fa";
 import { MdCancel, MdReviews } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import UserAddReviewModal from "./UserAddReviewModal";
 
 const UserApplications = () => {
     const axiosPublic = useAxiosPublic()
-    const {refetch, data: applications = [] } = useQuery({
+    const { refetch, data: applications = [] } = useQuery({
         queryKey: ['applications'],
         queryFn: async () => {
             const res = await axiosPublic.get('/appliedScholarship')
@@ -17,29 +18,29 @@ const UserApplications = () => {
     })
 
     const handleEdit = (status) => {
-        
-        if(status!="pending"){
+
+        if (status != "pending") {
             Swal.fire({
                 icon: "error",
                 title: "Can Not Edit.",
                 text: "Application Processing!",
-              });
+            });
         }
-        else{
+        else {
 
         }
     }
     const handleDelete = (id) => {
         axiosPublic.delete(`/appliedScholarship?id=${id}`)
-        .then(res=>{
-            console.log(res.data)
-            Swal.fire({
-                icon: "success",
-                title: "Deleted",
-                text: "Application is Canceled!",
-              });
-              refetch()
-        })
+            .then(res => {
+                console.log(res.data)
+                Swal.fire({
+                    icon: "success",
+                    title: "Deleted",
+                    text: "Application is Canceled!",
+                });
+                refetch()
+            })
 
     }
     return (
@@ -66,62 +67,66 @@ const UserApplications = () => {
                     <tbody>
                         {/* table row loop */}
                         {applications.map(item =>
-                            <tr>
-                                <th>
-                                    <div className="flex items-center gap-3">
-                                        <div>
-                                            <div className="font-bold">{item.university}</div>
-                                            <div className="text-sm opacity-50">{item.universityAddress}</div>
+                            <>
+                                <tr>
+                                    <th>
+                                        <div className="flex items-center gap-3">
+                                            <div>
+                                                <div className="font-bold">{item.university}</div>
+                                                <div className="text-sm opacity-50">{item.universityAddress}</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div>{item.feedback}</div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div>
-                                            <div className="font-bold uppercase">{item.subject}</div>
-                                            <div className="text-sm opacity-50 ">{item.degree}</div>
+                                    </th>
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div>{item.feedback}</div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div>
-                                            <div className="font-bold uppercase">$ {item.applicationFee} </div>
-                                            <div className="text-sm opacity-50 ">$ {item.serviceCharge}</div>
+                                    </td>
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div>
+                                                <div className="font-bold uppercase">{item.subject}</div>
+                                                <div className="text-sm opacity-50 ">{item.degree}</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div>{item.status||"pending"}</div>
-                                    </div>
-                                </td>
-                                <td >
-                                    <div className="tooltip" data-tip='Details'>
-                                        <Link to={`/details/${item.scholarshipId}`}>
-                                            <button className="cursor-pointer p-2 text-xl hover:scale-150 text-blue-600 transition-all ease-in"><FaInfoCircle></FaInfoCircle> </button>
-                                        </Link>
-                                    </div>
-                                    <div className="tooltip" data-tip='Edit'>
-                                        <button onClick={()=>handleEdit(item.status)} className="cursor-pointer p-2 text-xl hover:scale-150 text-green-600 transition-all ease-in"><FaEdit></FaEdit></button>
-                                    </div>
-                                    <div className="tooltip" data-tip='Cancel'>
-                                        <button onClick={()=>handleDelete(item._id)} className="cursor-pointer p-2 text-xl hover:scale-150 text-red-600 transition-all ease-in"><MdCancel></MdCancel></button>
-                                    </div>
-                                </td>
-                                <td className="text-center">
-                                    <div className="tooltip" data-tip='Add Review'>
-                                        <button className="cursor-pointer p-2 text-xl hover:scale-150 text-orange-600 transition-all ease-in"><MdReviews></MdReviews></button>
-                                    </div>
+                                    </td>
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div>
+                                                <div className="font-bold uppercase">$ {item.applicationFee} </div>
+                                                <div className="text-sm opacity-50 ">$ {item.serviceCharge}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div>{item.status || "pending"}</div>
+                                        </div>
+                                    </td>
+                                    <td className="flex items-center justify-center" >
+                                        <div className="tooltip" data-tip='Details'>
+                                            <Link to={`/details/${item.scholarshipId}`}>
+                                                <button className="cursor-pointer p-2 text-xl hover:scale-150 text-blue-600 transition-all ease-in"><FaInfoCircle></FaInfoCircle> </button>
+                                            </Link>
+                                        </div>
+                                        <div className="tooltip" data-tip='Edit'>
+                                            <button onClick={() => handleEdit(item.status)} className="cursor-pointer p-2 text-xl hover:scale-150 text-green-600 transition-all ease-in"><FaEdit></FaEdit></button>
+                                        </div>
+                                        <div className="tooltip" data-tip='Cancel'>
+                                            <button onClick={() => handleDelete(item._id)} className="cursor-pointer p-2 text-xl hover:scale-150 text-red-600 transition-all ease-in"><MdCancel></MdCancel></button>
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className="tooltip" data-tip='Add Review'>
+                                            <button 
+                                            onClick={()=>document.getElementById(`${item._id}`).showModal()}
+                                            className="cursor-pointer p-2 text-xl hover:scale-150 text-orange-600 transition-all ease-in"><MdReviews></MdReviews></button>
+                                        </div>
 
-                                </td>
-                            </tr>
-                            
+                                    </td>
+                                </tr>
+                                    <UserAddReviewModal item={item}></UserAddReviewModal>
+                            </>
                         )}
                     </tbody>
 
