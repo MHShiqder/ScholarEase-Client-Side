@@ -6,10 +6,10 @@ import {BsInstagram, BsLinkedin, BsTwitter} from "react-icons/bs";
 const ContactForm = () => {
 
     return (
-        <section className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[35px] boxShadow  mb-20 rounded-xl">
+        <section className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[35px] boxShadow  mb-20 rounded-none">
 
             {/*  informations  */}
-            <aside className="w-full bg-[#1E1E1E] flex flex-col justify-between p-[25px] rounded-md">
+            <aside className="w-full bg-[#1E1E1E] flex flex-col justify-between p-[25px] rounded-none">
 
                 <div>
                     <h1 className="text-[2rem] font-[600] leading-[35px] text-white">Contact
@@ -93,7 +93,7 @@ const ContactForm = () => {
 
                 <div className="w-full flex items-center sm:items-end justify-center sm:justify-end mt-5">
                     <button type="submit"
-                            className={`py-2.5 px-6 bg-[#15AE5C] border transition-all duration-300 hover:border-gray-800 hover:text-gray-800 hover:bg-transparent text-white rounded-md text-[1rem] mt-[10px] w-max`}>Send
+                            className={`py-2.5 px-6 bg-[#15AE5C] border transition-all duration-300 hover:border-gray-800 hover:text-gray-800 hover:bg-transparent text-white rounded-none text-[1rem] mt-[10px] w-max`}>Send
                         Message
                     </button>
                 </div>

@@ -11,6 +11,9 @@ import AddScholarship from "../Pages/AddScholarship/AddScholarship";
 import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 import PrivateRoutes from "./PrivateRoutes";
 import Payment from "../Pages/Payment/Payment";
+import UserProfile from "../Pages/UserProfile/UserProfile";
+import UserApplications from "../Pages/UserApplications/UserApplications";
+import UserReviews from "../Pages/UserReviews/UserReviews";
 
 const router = createBrowserRouter([
     {
@@ -47,7 +50,21 @@ const router = createBrowserRouter([
     // user dashboard 
     {
         path: '/userDashboard',
-        element: <UserDashboard></UserDashboard>
+        element: <UserDashboard></UserDashboard>,
+        children:[
+            {
+                path:'user-profile',
+                element:<UserProfile></UserProfile>
+            },
+            {
+                path:'user-applications',
+                element:<UserApplications></UserApplications>
+            },
+            {
+                path:'user-reviews',
+                element:<UserReviews></UserReviews>
+            },
+        ]
     },
     // admin dashboard 
     {

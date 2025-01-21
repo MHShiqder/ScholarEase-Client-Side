@@ -4,14 +4,16 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../Hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 // image hosting key 
 const imageKey = import.meta.env.VITE_image_hosting_key;
 const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageKey}`;
 
 
-const PaymentModal = ({ info }) => {
-    const { university, subject, category, id } = info
+const PaymentModal = ({ info }) => { 
+    const { university, subject, category, id,city,country,applicationFee,serviceCharge } = info
+    const navigate=useNavigate()
     // retrieving the current user info from database 
     const {user:currentUser}=useAuth()
     const {  data: user = [] } = useQuery({
@@ -53,6 +55,9 @@ const PaymentModal = ({ info }) => {
             subject,
             category,
             applyDate:today,
+            universityAddress:city+", "+country,
+            applicationFee,
+            serviceCharge,
         }
         
         axiosPublic.post('/appliedScholarship', modalInfo)
@@ -66,6 +71,7 @@ const PaymentModal = ({ info }) => {
             .catch(err => console.log(err))
             reset()
             document.getElementById(`${id}`).close()
+            navigate('/all-scholarship')
     };
     const style = "border-[#79D7BE] border outline-none px-4 w-full py-3 focus:border-[#3B9DF8] focus:border-b transition-colors duration-300 placeholder-[#2E5077] bg-white"
 
@@ -105,7 +111,7 @@ const PaymentModal = ({ info }) => {
                                 <option className='text-black' value="default" disabled>--Degree--</option>
                                 <option className='text-black' value="Bachelor" >Bachelor</option>
                                 <option className='text-black' value="Diploma" >Diploma</option>
-                                <option className='text-black' value="masters" >Masters</option>
+                                <option className='text-black' value="Masters" >Masters</option>
                             </select>
                         </label>
                         <label className='space-y-2'>

@@ -12,7 +12,6 @@ const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageKey}`;
 const AddScholarship = () => {
     const today = new Date().toISOString().split("T")[0];
     const axiosPublic = useAxiosPublic()
-    const navigate = useNavigate()
     const { user } = useAuth()
     const {
         register,
@@ -76,9 +75,9 @@ const AddScholarship = () => {
                 />
                 <select required defaultValue={"default"}  {...register("subject")} className={style}>
                     <option className='text-black' value="default" disabled>--Subject category--</option>
-                    <option className='text-black' value="doctor" >Doctor</option>
-                    <option className='text-black' value="engineering" >Engineering</option>
-                    <option className='text-black' value="agriculture" >Agriculture</option>
+                    <option className='text-black' value="Doctor" >Doctor</option>
+                    <option className='text-black' value="Engineering" >Engineering</option>
+                    <option className='text-black' value="Agriculture" >Agriculture</option>
                 </select>
                 <select required defaultValue={"default"}  {...register("category")} className={style}>
                     <option className='text-black' value="default" disabled>--Scholarship category--</option>
@@ -90,7 +89,7 @@ const AddScholarship = () => {
                     <option className='text-black' value="default" disabled>--Degree--</option>
                     <option className='text-black' value="Bachelor" >Bachelor</option>
                     <option className='text-black' value="Diploma" >Diploma</option>
-                    <option className='text-black' value="masters" >Masters</option>
+                    <option className='text-black' value="Masters" >Masters</option>
                 </select>
 
                 <input required type="number" min={150000} max={15000000} {...register("tuitionFee")} id="name" placeholder=" Tuition fees" className={style}
