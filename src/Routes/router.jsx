@@ -74,7 +74,11 @@ const router = createBrowserRouter([
             {
                 path: 'add-scholarship',
                 element: <AddScholarship></AddScholarship>
-            }
+            },
+            {
+                path:'user-profile',
+                element:<UserProfile></UserProfile>
+            },
         ]
     },
 ]);

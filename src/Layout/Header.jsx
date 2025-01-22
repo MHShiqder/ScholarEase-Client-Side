@@ -5,7 +5,7 @@ import useAuth from "../Hooks/useAuth";
 
 const Header = () => {
     const { user, signOutUser } = useAuth()
-    const isAdmin=false
+    const isAdmin=true
     const links = <>
         <li><NavLink to='/' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Home</NavLink></li>
 

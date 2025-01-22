@@ -21,6 +21,7 @@ const AdminDashboard = () => {
                         {/* Sidebar content here */}
                         
                         <li><Link to="/adminDashboard/add-scholarship" className={"bg-[#4DA1A9] text-white rounded-none"}>Add Scholarship</Link></li>
+                        <li><Link to="/adminDashboard/user-profile" className={"bg-[#4DA1A9] text-white rounded-none"}>My Profile</Link></li>
                         <li><Link to="/" className={"bg-[#4DA1A9] text-white rounded-none"}>Home</Link></li>
                         
                     </ul>

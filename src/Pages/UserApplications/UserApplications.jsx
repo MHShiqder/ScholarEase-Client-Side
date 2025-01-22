@@ -6,6 +6,7 @@ import { MdCancel, MdReviews } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import UserAddReviewModal from "./UserAddReviewModal";
+import UserEditApplicationModal from "./UserEditApplicationModal";
 
 const UserApplications = () => {
     const axiosPublic = useAxiosPublic()
@@ -19,7 +20,7 @@ const UserApplications = () => {
 
     const handleEdit = (item) => {
 
-        if (item.status != "pending") {
+        if (item.status && item.status != "pending") {
             Swal.fire({
                 icon: "error",
                 title: "Can Not Edit.",
@@ -27,7 +28,7 @@ const UserApplications = () => {
             });
         }
         else {
-
+            document.getElementById(`edit${item._id}`).showModal()
         }
     }
     const handleDelete = (id) => {
@@ -125,6 +126,7 @@ const UserApplications = () => {
 
                                     </td>
                                     <UserAddReviewModal item={item}></UserAddReviewModal>
+                                    <UserEditApplicationModal refetch={refetch} item={item}></UserEditApplicationModal>
                                 </tr>
                            
                         )}
