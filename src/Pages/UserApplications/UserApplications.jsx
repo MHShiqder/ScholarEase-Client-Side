@@ -7,13 +7,15 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import UserAddReviewModal from "./UserAddReviewModal";
 import UserEditApplicationModal from "./UserEditApplicationModal";
+import useAuth from "../../Hooks/useAuth";
 
 const UserApplications = () => {
     const axiosPublic = useAxiosPublic()
-    const { refetch, data: applications = [] } = useQuery({
-        queryKey: ['applications'],
+    const {user}=useAuth()
+    const { refetch, data: application = [] } = useQuery({
+        queryKey: ['application',user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get('/appliedScholarship')
+            const res = await axiosPublic.get(`/appliedScholarship/${user?.email}`)
             return res.data;
         }
     })
@@ -67,7 +69,7 @@ const UserApplications = () => {
                     </thead>
                     <tbody>
                         {/* table row loop */}
-                        {applications.map((item,idx) =>
+                        {application.map((item,idx) =>
                            
                                 <tr key={idx}>
                                     <th>

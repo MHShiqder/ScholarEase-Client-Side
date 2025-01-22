@@ -16,6 +16,7 @@ import UserApplications from "../Pages/UserApplications/UserApplications";
 import UserReviews from "../Pages/UserReviews/UserReviews";
 import AllUsers from "../Pages/AllUsers/AllUsers";
 import AllReview from "../Pages/AllReview/AllReview";
+import AllAppliedScholarship from "../Pages/AllAppliedScholarship/AllAppliedScholarship";
 
 const router = createBrowserRouter([
     {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
             {
                 path:'all-review',
                 element:<AllReview></AllReview>
+            },
+            {
+                path:'all-appliedScholarship',
+                element:<AllAppliedScholarship></AllAppliedScholarship>
             },
         ]
     },
