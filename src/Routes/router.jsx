@@ -14,6 +14,8 @@ import Payment from "../Pages/Payment/Payment";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import UserApplications from "../Pages/UserApplications/UserApplications";
 import UserReviews from "../Pages/UserReviews/UserReviews";
+import AllUsers from "../Pages/AllUsers/AllUsers";
+import AllReview from "../Pages/AllReview/AllReview";
 
 const router = createBrowserRouter([
     {
@@ -78,6 +80,14 @@ const router = createBrowserRouter([
             {
                 path:'user-profile',
                 element:<UserProfile></UserProfile>
+            },
+            {
+                path:'all-users',
+                element:<AllUsers></AllUsers>
+            },
+            {
+                path:'all-review',
+                element:<AllReview></AllReview>
             },
         ]
     },

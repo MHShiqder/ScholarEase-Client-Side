@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import navLogo from '../assets/NavLogo.png'
 import useAuth from "../Hooks/useAuth";
+import useRole from "../Hooks/useRole";
 
 
 const Header = () => {
     const { user, signOutUser } = useAuth()
-    const isAdmin=true
+    const [singleUser]=useRole()
     const links = <>
         <li><NavLink to='/' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Home</NavLink></li>
 
@@ -16,11 +17,9 @@ const Header = () => {
                 ?
                 <>
                     {
-                        isAdmin
+                        singleUser?.role=="Admin"||singleUser?.role=="Moderator"
                             ?
-                            <>
-                               
-
+                            <>                               
                                 <li><NavLink to='/adminDashboard/add-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-2 font-serif px-3 py-1 '}>Admin_Dashboard</NavLink></li>
                             </>
                             :
