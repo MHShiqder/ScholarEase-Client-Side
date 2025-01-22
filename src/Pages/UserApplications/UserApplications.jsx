@@ -17,9 +17,9 @@ const UserApplications = () => {
         }
     })
 
-    const handleEdit = (status) => {
+    const handleEdit = (item) => {
 
-        if (status != "pending") {
+        if (item.status != "pending") {
             Swal.fire({
                 icon: "error",
                 title: "Can Not Edit.",
@@ -66,9 +66,9 @@ const UserApplications = () => {
                     </thead>
                     <tbody>
                         {/* table row loop */}
-                        {applications.map(item =>
-                            <>
-                                <tr>
+                        {applications.map((item,idx) =>
+                           
+                                <tr key={idx}>
                                     <th>
                                         <div className="flex items-center gap-3">
                                             <div>
@@ -110,7 +110,7 @@ const UserApplications = () => {
                                             </Link>
                                         </div>
                                         <div className="tooltip" data-tip='Edit'>
-                                            <button onClick={() => handleEdit(item.status)} className="cursor-pointer p-2 text-xl hover:scale-150 text-green-600 transition-all ease-in"><FaEdit></FaEdit></button>
+                                            <button onClick={() => handleEdit(item)} className="cursor-pointer p-2 text-xl hover:scale-150 text-green-600 transition-all ease-in"><FaEdit></FaEdit></button>
                                         </div>
                                         <div className="tooltip" data-tip='Cancel'>
                                             <button onClick={() => handleDelete(item._id)} className="cursor-pointer p-2 text-xl hover:scale-150 text-red-600 transition-all ease-in"><MdCancel></MdCancel></button>
@@ -124,9 +124,9 @@ const UserApplications = () => {
                                         </div>
 
                                     </td>
-                                </tr>
                                     <UserAddReviewModal item={item}></UserAddReviewModal>
-                            </>
+                                </tr>
+                           
                         )}
                     </tbody>
 

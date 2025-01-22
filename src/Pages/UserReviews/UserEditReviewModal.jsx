@@ -5,8 +5,8 @@ import useAuth from '../../Hooks/useAuth';
 
 
 
-const UserAddReviewModal = ({ item }) => {
-    const { scholarshipName, university,scholarshipId,userId,_id } = item;
+const UserEditReviewModal = ({ item,refetch }) => {
+    const { review,rating,_id } = item;
 
     
     // retrieving the current user info from database 
@@ -26,26 +26,21 @@ const UserAddReviewModal = ({ item }) => {
 
 
         const modalInfo = {
-            ...data,
-            photo: user?.photoURL,
-            userName: user?.displayName,
-            userEmail: user?.email,
-            userId: userId,
-            scholarshipId: scholarshipId,
-            scholarshipName,
-            university,
-            reviewDate: today,
+            
+            review:data.review,
+            rating:data.rating
 
         }
         console.log(modalInfo,"modal")
 
-        axiosPublic.post('/review', modalInfo)
+        axiosPublic.patch(`/review?id=${_id}`, modalInfo)
             .then((res) => {
                 console.log(res.data)
                 Swal.fire({
                     title: "Your review has been posted",
                     icon: "success",
                 });
+                refetch()
             })
             .catch(err => console.log(err))
         reset()
@@ -64,18 +59,18 @@ const UserAddReviewModal = ({ item }) => {
                     <form onSubmit={handleSubmit(onSubmit)} className='space-y-5 flex flex-col '>
                         <label className='space-y-2'>
                             <span className=''>Rating Point *</span>
-                            <input required type="number" max={5} {...register("rating")} placeholder="Put Your Rating" className={style}
+                            <input required type="number" max={5} {...register("rating")} defaultValue={rating} placeholder="Put Your Rating" className={style}
                             />
                         </label>
 
                         <label className='space-y-2'>
                             <span className=''>Review *</span>
-                            <textarea required type="text"  {...register("review")} placeholder="Put Your Review" className={style}
+                            <textarea required type="text"  {...register("review")} defaultValue={review}  placeholder="Put Your Review" className={style}
                             />
                         </label>
 
                         {/* submit button  */}
-                        <input required className='btn rounded-none bg-[#4DA1A9] md:col-span-2 hover:bg-[#2E5077] text-white' type="submit" value="Submit" />
+                        <input required className='btn rounded-none bg-[#4DA1A9] md:col-span-2 hover:bg-[#2E5077] text-white' type="submit" value="Update" />
                     </form>
 
                     <div className="modal-action">
@@ -90,7 +85,7 @@ const UserAddReviewModal = ({ item }) => {
     );
 };
 
-export default UserAddReviewModal;
+export default UserEditReviewModal;
 
 
 
