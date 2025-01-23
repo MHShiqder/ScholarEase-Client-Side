@@ -2,11 +2,13 @@ import { Link, useParams } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Reviews from "../../Component/Reviews/Reviews";
+import DashboardTitle from "../../Component/DashboardTitle/DashboardTitle";
 
 const DetailsPage = () => {
     const { id } = useParams()
+    
     const axiosSecure = useAxiosSecure()
-    const { refetch, data: scholarship = {}, isLoading, } = useQuery({
+    const {  data: scholarship = {}, isLoading, } = useQuery({
         queryKey: ['scholarship'],
         queryFn: async () => {
             const result = await axiosSecure.get(`/scholarship/${id}`)
@@ -60,7 +62,8 @@ const DetailsPage = () => {
                         </div>                      
                         </div>
                         {/* TODO: */}
-                        {/* <Reviews id={_id}></Reviews> */}
+                        <DashboardTitle title={"Ratings"}></DashboardTitle>
+                        <Reviews id={_id}></Reviews>
                     </div>
 
             }

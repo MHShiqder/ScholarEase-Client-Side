@@ -6,35 +6,41 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { FaQuoteLeft } from 'react-icons/fa';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
-const Reviews = () => {
-    // const [reviews, setReviews] = useState([])
-    // useEffect(() => {
-    //     fetch('reviews.json')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setReviews(data)
-                
-    //         });
-
-    // }, [])
+const Reviews = ({ id }) => {
+    
+    const axiosSecure=useAxiosSecure()
+    const { data: thisReviews = [] } = useQuery({
+        queryKey:["thisReviews",id],
+        queryFn:async()=>{
+            const res=await axiosSecure.get(`/thisReviews/${id}`)
+            return res.data;
+        }
+    })
+    console.log(thisReviews,"swiper")
     return (
         <div className='my-16'>
-            
+
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 {
-                    reviews.map((review,idx) => <SwiperSlide key={idx}>
+                    thisReviews.map((review, idx) => <SwiperSlide key={idx}>
                         <div className='flex flex-col items-center mx-24'>
                             <Rating
                                 style={{ maxWidth: 180 }}
                                 value={review.rating}
                                 readOnly
                             />
-                            <FaQuoteLeft className='text-5xl mt-10'/>
-                            <p className='py-8'>
-                                {review.details}
+                            
+                            <p className='py-8 text-xl'>
+                                "{review.review}"
                             </p>
-                            <h2 className='text-2xl text-orange-400'>{review.name}</h2>
+                            <img className='h-24 w-24 rounded-full object-contain' src={review.photo} alt="" />
+                            <h2 className='text-2xl text-orange-400 mt-5'>{review.userName}</h2>
+                            <p className='pb-3'>
+                               Date: {review.reviewDate}
+                            </p>
                         </div>
                     </SwiperSlide>)
                 }

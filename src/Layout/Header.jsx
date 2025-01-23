@@ -20,7 +20,7 @@ const Header = () => {
                         singleUser?.role=="Admin"||singleUser?.role=="Moderator"
                             ?
                             <>                               
-                                <li><NavLink to='/adminDashboard/add-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-2 font-serif px-3 py-1 '}>Admin_Dashboard</NavLink></li>
+                                <li><NavLink to='/adminDashboard/user-profile' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-2 font-serif px-3 py-1 '}>Admin_Dashboard</NavLink></li>
                             </>
                             :
                             <>

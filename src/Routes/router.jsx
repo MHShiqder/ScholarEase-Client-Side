@@ -17,6 +17,9 @@ import UserReviews from "../Pages/UserReviews/UserReviews";
 import AllUsers from "../Pages/AllUsers/AllUsers";
 import AllReview from "../Pages/AllReview/AllReview";
 import AllAppliedScholarship from "../Pages/AllAppliedScholarship/AllAppliedScholarship";
+import ManageScholarship from "../Pages/ManageScholarship/ManageScholarship";
+import AdminRoute from "./AdminRoute";
+import ModeratorRoute from "./ModeratorRoute";
 
 const router = createBrowserRouter([
     {
@@ -57,15 +60,15 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'user-profile',
-                element:<UserProfile></UserProfile>
+                element:<PrivateRoutes><UserProfile></UserProfile></PrivateRoutes>
             },
             {
                 path:'user-applications',
-                element:<UserApplications></UserApplications>
+                element:<PrivateRoutes><UserApplications></UserApplications></PrivateRoutes>
             },
             {
                 path:'user-reviews',
-                element:<UserReviews></UserReviews>
+                element:<PrivateRoutes><UserReviews></UserReviews></PrivateRoutes>
             },
         ]
     },
@@ -76,23 +79,27 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'add-scholarship',
-                element: <AddScholarship></AddScholarship>
+                element: <ModeratorRoute><AddScholarship></AddScholarship></ModeratorRoute>
             },
             {
                 path:'user-profile',
-                element:<UserProfile></UserProfile>
+                element:<ModeratorRoute><UserProfile></UserProfile></ModeratorRoute>
             },
             {
                 path:'all-users',
-                element:<AllUsers></AllUsers>
+                element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path:'all-review',
-                element:<AllReview></AllReview>
+                element:<ModeratorRoute><AllReview></AllReview></ModeratorRoute>
             },
             {
                 path:'all-appliedScholarship',
-                element:<AllAppliedScholarship></AllAppliedScholarship>
+                element:<ModeratorRoute><AllAppliedScholarship></AllAppliedScholarship></ModeratorRoute>
+            },
+            {
+                path:'manage-scholarship',
+                element:<ModeratorRoute><ManageScholarship></ManageScholarship></ModeratorRoute>
             },
         ]
     },

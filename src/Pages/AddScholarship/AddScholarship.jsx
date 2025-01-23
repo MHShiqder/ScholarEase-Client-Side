@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import DashboardTitle from '../../Component/DashboardTitle/DashboardTitle';
-import { useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
@@ -57,49 +56,95 @@ const AddScholarship = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className='grid  md:grid-cols-2 gap-5'>
 
-                <input required type="text" {...register("scholarship")} id="name" placeholder=" Scholarship Name" className={style}
-                />
-                <input required type="text"  {...register("university")} id="name" placeholder="University Name" className={style}
-                />
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> Scholarship Name</span>
+                    <input required type="text" {...register("scholarship")} id="name" placeholder=" Scholarship Name" className={style}
+                    />
+                </label>
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> University Name</span>
+                    <input required type="text"  {...register("university")} id="name" placeholder="University Name" className={style}
+                    />
+                </label>
+
                 <input type="text" placeholder="Choose University Image --->" disabled className={style}
                 />
                 <input required type="file"  {...register("photo")} id="name" placeholder=" University image" className={"  outline-none w-full  bg-white file:py-3 file:px-4 file:border file:bg-[#4DA1A9] file:text-white file:hover:bg-[#2E5077]"}
                 />
-                <input required type="text"  {...register("country")} id="name" placeholder=" University Country" className={style}
-                />
-                <input required type="text"  {...register("city")} id="name" placeholder=" University city" className={style}
-                />
-                <textarea required type="number" min={1} max={1500} {...register("details")} id="name" placeholder=" Scholarship Details" className={style+"h-24 md:col-span-2"}
-                />
-                <input required type="number" min={1} max={1500} {...register("rank")} id="name" placeholder=" University World Rank" className={style}
-                />
-                <select required defaultValue={"default"}  {...register("subject")} className={style}>
-                    <option className='text-black' value="default" disabled>--Subject category--</option>
-                    <option className='text-black' value="Doctor" >Doctor</option>
-                    <option className='text-black' value="Engineering" >Engineering</option>
-                    <option className='text-black' value="Agriculture" >Agriculture</option>
-                </select>
-                <select required defaultValue={"default"}  {...register("category")} className={style}>
-                    <option className='text-black' value="default" disabled>--Scholarship category--</option>
-                    <option className='text-black' value="Full fund" >Full fund</option>
-                    <option className='text-black' value="Partial" >Partial</option>
-                    <option className='text-black' value="Self-fund" >Self-fund</option>
-                </select>
-                <select required defaultValue={"default"}  {...register("degree")} className={style}>
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> University Country</span>
+                    <input required type="text"  {...register("country")} id="name" placeholder=" University Country" className={style}
+                    />
+                </label>
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> University city</span>
+                    <input required type="text"  {...register("city")} id="name" placeholder=" University city" className={style}
+                    />
+                </label>
+                <label className='md:col-span-2'>
+                    <span className='ml-3 pb-2 flex items-center'> Scholarship details</span>
+                    <textarea required type="number" min={1} max={1500} {...register("details")} id="name" placeholder=" Scholarship Details" className={style + "h-24 "}
+                    />
+                </label>
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> University World Rank</span>
+                    <input required type="number" min={1} max={1500} {...register("rank")} id="name" placeholder=" University World Rank" className={style}
+                    />
+                </label>
+
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> Subject Category</span>
+                    <select required defaultValue={"default"}  {...register("subject")} className={style}>
+                        <option className='text-black' value="default" disabled>--Subject category--</option>
+                        <option className='text-black' value="Doctor" >Doctor</option>
+                        <option className='text-black' value="Engineering" >Engineering</option>
+                        <option className='text-black' value="Agriculture" >Agriculture</option>
+                    </select>
+                </label>
+
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> Scholarship Category</span>
+                    <select required defaultValue={"default"}  {...register("category")} className={style}>
+                        <option className='text-black' value="default" disabled>--Scholarship category--</option>
+                        <option className='text-black' value="Full fund" >Full fund</option>
+                        <option className='text-black' value="Partial" >Partial</option>
+                        <option className='text-black' value="Self-fund" >Self-fund</option>
+                    </select>
+                </label>
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> Degree</span>
+                    <select required defaultValue={"default"}  {...register("degree")} className={style}>
                     <option className='text-black' value="default" disabled>--Degree--</option>
                     <option className='text-black' value="Bachelor" >Bachelor</option>
                     <option className='text-black' value="Diploma" >Diploma</option>
                     <option className='text-black' value="Masters" >Masters</option>
                 </select>
+                </label>
 
-                <input required type="number" min={150000} max={15000000} {...register("tuitionFee")} id="name" placeholder=" Tuition fees" className={style}
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> Tuition Fees</span>
+                    <input required type="number" min={150000} max={15000000} {...register("tuitionFee")} id="name" placeholder=" Tuition fees" className={style}
+                    />
+                </label>
+
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> Application Fees</span>
+                    <input required type="number" min={5000} max={30000} {...register("applicationFee")} id="name" placeholder=" Application fees" className={style}
+                    />
+                </label>
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> Service Charge</span>
+                    <input required type="number" min={700} max={1500} {...register("serviceCharge")} id="name" placeholder=" Service charge" className={style}
                 />
-                <input required type="number" min={5000} max={30000} {...register("applicationFee")} id="name" placeholder=" Application fees" className={style}
-                />
-                <input required type="number" min={700} max={1500} {...register("serviceCharge")} id="name" placeholder=" Service charge" className={style}
-                />
-                <input required type="text"  {...register("email")} value={user.email} id="name" placeholder="   Posted User Email" className={style}
-                />
+                </label>
+
+                <label >
+                    <span className='ml-3 pb-2 flex items-center'> Posted User Email</span>
+                    <input required type="text"  {...register("email")} value={user.email} id="name" placeholder="   Posted User Email" className={style}
+                    />
+                </label>
+
+
                 <label >
                     <span className='ml-3 pb-2 flex items-center'> Application Deadline</span>
                     <input required type="date" min={today} {...register("deadline")} id="name" placeholder=" Application Deadline" className={style}
@@ -108,9 +153,9 @@ const AddScholarship = () => {
                 <label >
                     <span className='ml-3 pb-2 flex items-center'> Scholarship post Date</span>
                     <input required type="date"   {...register("postDate")} id="name" placeholder="  Scholarship post Date" className={style}
-                />
+                    />
                 </label>
-                
+
                 <input required className='btn rounded-none bg-[#4DA1A9] md:col-span-2 hover:bg-[#2E5077] text-white' type="submit" value="Add Scholarship" />
             </form>
 

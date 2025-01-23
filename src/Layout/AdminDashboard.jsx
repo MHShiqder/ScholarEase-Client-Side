@@ -1,8 +1,10 @@
 import { RiMenu2Line } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
+import useRole from "../Hooks/useRole";
 
 
 const AdminDashboard = () => {
+    const [singleUser]=useRole()
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -22,17 +24,21 @@ const AdminDashboard = () => {
 
                         <li><Link to="/adminDashboard/user-profile" className={"bg-[#4DA1A9] text-white rounded-none"}>My Profile</Link></li>
 
-                        <li><Link to="/adminDashboard/all-users" className={"bg-[#4DA1A9] text-white rounded-none"}>All Users </Link></li>
+                        {
+                            singleUser.role=="Admin"&&<li><Link to="/adminDashboard/all-users" className={"bg-[#4DA1A9] text-white rounded-none"}>All Users </Link></li>
+                        }
 
                         <li><Link to="/adminDashboard/all-review" className={"bg-[#4DA1A9] text-white rounded-none"}>All Review</Link></li>
 
                         <li><Link to="/adminDashboard/all-appliedScholarship" className={"bg-[#4DA1A9] text-white rounded-none"}>All Applied Scholarship</Link></li>
 
+                        <li><Link to="/adminDashboard/manage-scholarship" className={"bg-[#4DA1A9] text-white rounded-none"}>Manage Scholarship</Link></li>
+
                         <li><Link to="/adminDashboard/add-scholarship" className={"bg-[#4DA1A9] text-white rounded-none"}>Add Scholarship</Link></li>
 
 
                         <div className=" border-b-2 my-5 border-[#4DA1A9]"></div>
-                        
+
 
                         <li><Link to="/" className={"bg-[#4DA1A9] text-white rounded-none"}>Home</Link></li>
 
