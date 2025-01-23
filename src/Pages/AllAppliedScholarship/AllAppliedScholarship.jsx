@@ -1,50 +1,47 @@
 import DashboardTitle from "../../Component/DashboardTitle/DashboardTitle";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import { FaEdit, FaInfoCircle } from "react-icons/fa";
+import {  FaInfoCircle } from "react-icons/fa";
 import { MdCancel, MdReviews } from "react-icons/md";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import UserAddReviewModal from "../UserApplications/UserAddReviewModal";
-import UserEditApplicationModal from "../UserApplications/UserEditApplicationModal";
 import AppliedScholarshipDetailsModal from "./AppliedScholarshipDetailsModal";
+import FeedbackModal from "./FeedbackModal";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const AllAppliedScholarship = () => {
-    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
     const { refetch, data: applications = [] } = useQuery({
         queryKey: ['applications'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/allAppliedScholarship')
+            const res = await axiosSecure.get('/allAppliedScholarship')
             return res.data;
         }
     })
 
-    const handleEdit = (item) => {
-
-        if (item.status && item.status != "pending") {
-            Swal.fire({
-                icon: "error",
-                title: "Can Not Edit.",
-                text: "Application Processing!",
-            });
-        }
-        else {
-            document.getElementById(`edit${item._id}`).showModal()
-        }
-    }
+    
     const handleDelete = (id) => {
-        axiosPublic.delete(`/appliedScholarship?id=${id}`)
-            .then(res => {
-                console.log(res.data)
-                Swal.fire({
-                    icon: "success",
-                    title: "Deleted",
-                    text: "Application is Canceled!",
-                });
-                refetch()
-            })
-
+        const info={status:"rejected"}
+        axiosSecure.patch(`/appliedScholarship?id=${id}`,info)
+                .then(res=>{
+                    console.log(res.data)
+                    if(res.data.modifiedCount>0){
+                        Swal.fire({
+                            title:"Done",
+                            text:"The application has been rejected",
+                            icon:"success",
+                            timer:"1500"
+                        })
+                        refetch()
+                    }
+                })
+                .catch(err=>{
+                    console.log("error",err)
+                    Swal.fire({
+                        title:"Error",
+                        icon:"error",
+                        timer:"1500"
+                    })
+                })
     }
     return (
         <div className="p-5 md:p-10">
@@ -107,7 +104,7 @@ const AllAppliedScholarship = () => {
                                     </div>
                                     <div className="tooltip" data-tip='Feedback'>
                                         <button
-                                            onClick={() => document.getElementById(`${item._id}`).showModal()}
+                                            onClick={() => document.getElementById(`feedback${item._id}`).showModal()}
                                             className="cursor-pointer p-2 text-xl hover:scale-150 text-green-600 transition-all ease-in"><MdReviews></MdReviews></button>
                                     </div>
                                     <div className="tooltip" data-tip='Cancel'>
@@ -116,7 +113,7 @@ const AllAppliedScholarship = () => {
                                 </td>
 
                                 <AppliedScholarshipDetailsModal item={item}></AppliedScholarshipDetailsModal>
-                                <UserEditApplicationModal refetch={refetch} item={item}></UserEditApplicationModal>
+                                <FeedbackModal id={item._id}></FeedbackModal>
                             </tr>
 
                         )}
