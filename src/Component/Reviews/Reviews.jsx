@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from 'react';
+
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { FaQuoteLeft } from 'react-icons/fa';
-import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
-const Reviews = ({ id }) => {
+
+const Reviews = ({ thisReviews }) => {
     
-    const axiosSecure=useAxiosSecure()
-    const { data: thisReviews = [] } = useQuery({
-        queryKey:["thisReviews",id],
-        queryFn:async()=>{
-            const res=await axiosSecure.get(`/thisReviews/${id}`)
-            return res.data;
-        }
-    })
-    console.log(thisReviews,"swiper")
+    
+    
     return (
         <div className='my-16'>
 

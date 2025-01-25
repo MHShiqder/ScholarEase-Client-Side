@@ -6,7 +6,7 @@ import useAuth from '../../Hooks/useAuth';
 
 
 const UserAddReviewModal = ({ item }) => {
-    const { scholarshipName, university,scholarshipId,userId,_id,subject } = item;
+    const { scholarshipName, university,scholarshipId,userId,_id,subject,photo } = item;
 
     
     // retrieving the current user info from database 

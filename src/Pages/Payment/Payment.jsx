@@ -13,10 +13,10 @@ const Payment = () => {
     const [scholarship, , isLoading] = useScholarship();
     if (!isLoading) {
         const currentScholarship = scholarship.find(item => item._id == id)
-        var { applicationFee,university,subject,category,country, city,applicationFee,serviceCharge,scholarship:scholarshipName } = currentScholarship;
+        var { applicationFee,university,subject,category,country, city,applicationFee,serviceCharge,scholarship:scholarshipName,deadline } = currentScholarship;
 
     }
-    const info={university,subject,category,id,country,city,applicationFee,serviceCharge,scholarshipName}
+    const info={university,subject,category,id,country,city,applicationFee,serviceCharge,scholarshipName,deadline}
     return (
         <div>
             {

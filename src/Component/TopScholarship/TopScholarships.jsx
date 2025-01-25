@@ -14,7 +14,7 @@ const TopScholarships = () => {
    
     return (
         <div className='text-center w-11/12 mx-auto'>
-            <h2 className='text-5xl bg-[#2E5077 ] font-bold my-10'>All Scholarship</h2>
+            <h2 className='text-5xl bg-[#2E5077 ] font-bold my-10'>Top Scholarship</h2>
             {
                 isLoading
                     ?

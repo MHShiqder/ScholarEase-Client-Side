@@ -30,7 +30,7 @@ const Header = () => {
 
 
                     <li onClick={() => { signOutUser() }}><NavLink to='' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Logout</NavLink></li>
-                    <div className="bg-green-600 py-1 px-2 md:flex gap-2 items-center ml-4">
+                    <div className="bg-green-700 py-1 px-2 md:flex gap-2 items-center ml-4 rounded-l-full">
                         <img className="h-10 w-10 rounded-full  border object-contain" src={user?.photoURL} alt="" />
                         <p className="font-bold">{user?.displayName}</p>
                     </div>
