@@ -5,11 +5,12 @@ import Swal from "sweetalert2";
 import { FaTrashAlt, FaUser } from "react-icons/fa";
 import DashboardTitle from "../../Component/DashboardTitle/DashboardTitle";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
-const AllUsers = () => { 
-    const roleRef=useRef()
+const AllUsers = () => {
+    const roleRef = useRef()
+    const [currentUsers,setCurrentUsers]=useState([])
     const axiosSecure = useAxiosSecure()
     const { refetch, data: users = [], isLoading, } = useQuery({
         queryKey: ['users'],
@@ -19,6 +20,9 @@ const AllUsers = () => {
         }
 
     })
+    useEffect(()=>{
+        setCurrentUsers(users)
+    },[users])
 
 
 
@@ -33,7 +37,7 @@ const AllUsers = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                
+
                 axiosSecure.delete(`/users/${id}`)
                     .then(res => {
                         console.log(res.data)
@@ -49,9 +53,9 @@ const AllUsers = () => {
             }
         });
     }
-    const handleMakeAdmin = (event,user) => {
-        const selected=event.target.value;
-        const role={role:selected}
+    const handleMakeAdmin = (event, user) => {
+        const selected = event.target.value;
+        const role = { role: selected }
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -62,8 +66,8 @@ const AllUsers = () => {
             confirmButtonText: `Yes, make ${selected}!`
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log("role",selected)
-                axiosSecure.patch(`/users/${user._id}`,role)
+                console.log("role", selected)
+                axiosSecure.patch(`/users/${user._id}`, role)
                     .then(res => {
                         if (res.data.modifiedCount > 0) {
                             Swal.fire({
@@ -77,8 +81,23 @@ const AllUsers = () => {
             }
         });
     }
-
-
+    const handleFilter = (e) => {
+        const filterVal=e.target.value;
+        console.log(filterVal)
+        if(filterVal==="Admin"){
+            const newUsers=users.filter(user=>user.role=="Admin")
+            setCurrentUsers(newUsers)
+        }
+        else if(filterVal==="Moderator"){
+            const newUsers=users.filter(user=>user.role=="Moderator")
+            setCurrentUsers(newUsers)
+        }
+        else{
+            const newUsers=users.filter(user=>user.role=="User")
+            setCurrentUsers(newUsers)
+        }
+    }
+console.log(currentUsers,"users")
 
     return (
         <div>
@@ -94,7 +113,14 @@ const AllUsers = () => {
                     <>
                         <div className='p-5 md:p-10'>
                             <DashboardTitle title={"All Users"}></DashboardTitle>
-                            
+                            <div className="text-end mb-2">
+                                <select onChange={handleFilter} defaultValue={"Filter"} className="p-1 bg-slate-700 text-white">
+                                    <option disabled value="Filter">Filter</option>
+                                    <option value="User">User</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Moderator">Moderator</option>
+                                </select>
+                            </div>
                             <div className="overflow-x-auto ">
                                 <table className="table ">
                                     {/* head */}
@@ -112,7 +138,7 @@ const AllUsers = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            users.map((user, idx) => <tr key={idx}>
+                                            currentUsers.map((user, idx) => <tr key={idx}>
                                                 <th>
                                                     {
                                                         idx + 1
@@ -126,10 +152,10 @@ const AllUsers = () => {
                                                 </td>
                                                 <td>
                                                     <select
-                                                     onChange={(event)=>handleMakeAdmin(event,user)} name="role" id=""
-                                                     defaultValue={user.role||"user"}
-                                                     ref={roleRef}
-                                                     className="focus:outline-none" >
+                                                        onChange={(event) => handleMakeAdmin(event, user)} name="role" id=""
+                                                        value={user.role }
+                                                        ref={roleRef}
+                                                        className="focus:outline-none" >
                                                         <option value="User">User</option>
                                                         <option value="Admin">Admin</option>
                                                         <option value="Moderator">Moderator</option>

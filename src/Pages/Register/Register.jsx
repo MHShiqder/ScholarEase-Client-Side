@@ -32,7 +32,7 @@ const Register = () => {
                 .catch(error => {
                     console.log(error)
                 })
-            axiosPublic.post('/users', { name, email })
+            axiosPublic.post('/users', { name, email,role:"User" })
                 .then(res => {
                     if (res.data.insertedId) {
 
