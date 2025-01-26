@@ -6,7 +6,7 @@ import useAuth from '../../Hooks/useAuth';
 
 
 const UserEditReviewModal = ({ item,refetch }) => {
-    const { review,rating,_id } = item;
+    const { review,_id } = item;
 
     
     // retrieving the current user info from database 
@@ -28,7 +28,7 @@ const UserEditReviewModal = ({ item,refetch }) => {
         const modalInfo = {
             
             review:data.review,
-            rating:data.rating
+            
 
         }
         console.log(modalInfo,"modal")
@@ -57,11 +57,7 @@ const UserEditReviewModal = ({ item,refetch }) => {
             <dialog id={_id} className="modal modal-bottom sm:modal-middle ">
                 <div className="modal-box rounded-none">
                     <form onSubmit={handleSubmit(onSubmit)} className='space-y-5 flex flex-col '>
-                        <label className='space-y-2'>
-                            <span className=''>Rating Point *</span>
-                            <input required type="number" max={5} {...register("rating")} defaultValue={rating} placeholder="Put Your Rating" className={style}
-                            />
-                        </label>
+                        
 
                         <label className='space-y-2'>
                             <span className=''>Review *</span>

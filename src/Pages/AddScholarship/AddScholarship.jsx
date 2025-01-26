@@ -32,7 +32,8 @@ const AddScholarship = () => {
         const imageUrl = res.data.data.display_url;
         // adding the image url 
         // scholarshipData={applicationFee,category,city,country,deadline,degree,email,postDate,rank,scholarship,serviceCharge,subject,tuitionFee,university,imageUrl}
-        const scholarshipData = { ...remainingProperties, imageUrl }
+        
+        const scholarshipData = { ...remainingProperties, imageUrl,ratingTotal:0,ratingCount:0 }
         console.log(scholarshipData)
         axiosPublic.post('/scholarship', scholarshipData)
             .then(res => {

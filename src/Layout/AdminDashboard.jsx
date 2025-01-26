@@ -36,6 +36,8 @@ const AdminDashboard = () => {
 
                         <li><Link to="/adminDashboard/add-scholarship" className={"bg-[#4DA1A9] text-white rounded-none"}>Add Scholarship</Link></li>
 
+                        <li><Link to="/adminDashboard/chart" className={"bg-[#4DA1A9] text-white rounded-none"}>Analytics</Link></li>
+
 
                         <div className=" border-b-2 my-5 border-[#4DA1A9]"></div>
 

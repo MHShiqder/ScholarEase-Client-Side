@@ -18,9 +18,9 @@ const DetailsPage = () => {
             return res.data;
         }
     })
-    const total = thisReviews.reduce((acc, cVal) => acc + parseInt(cVal.rating), 0)
-    const averageRating = (total / thisReviews.length).toFixed(2);
-    console.log("average", averageRating)
+    // const total = thisReviews.reduce((acc, cVal) => acc + parseInt(cVal.rating), 0)
+    // const averageRating = (total / thisReviews.length).toFixed(2);
+    // console.log("average", averageRating)
 
 
 
@@ -31,7 +31,7 @@ const DetailsPage = () => {
             return result.data;
         }
     })
-    const { applicationFee, category, city, country, deadline, postDate, rank, scholarship: scholarshipName, serviceCharge, subject, _id, university, imageUrl, details } = scholarship;
+    const { applicationFee, category, city, country, deadline, postDate, rank, scholarship: scholarshipName, serviceCharge, subject, _id, university, imageUrl, details,ratingCount,ratingTotal } = scholarship;
     return (
         <div>
             {
@@ -70,9 +70,9 @@ const DetailsPage = () => {
                                     }
                                     <p className="flex flex-col md:flex-row items-center justify-center gap-2"><span className=' font-medium'>Rating: </span><Rating
                                         style={{ maxWidth: 100 }}
-                                        value={averageRating}
+                                        value={ratingTotal/ratingCount}
                                         readOnly
-                                    />  ({isNaN(averageRating)?"5":averageRating}) </p>
+                                    />  ({ratingTotal/ratingCount||0}) </p>
 
                                 </div>
 

@@ -20,6 +20,7 @@ import AllAppliedScholarship from "../Pages/AllAppliedScholarship/AllAppliedScho
 import ManageScholarship from "../Pages/ManageScholarship/ManageScholarship";
 import AdminRoute from "./AdminRoute";
 import ModeratorRoute from "./ModeratorRoute";
+import Chart from "../Pages/Chart/Chart";
 
 const router = createBrowserRouter([
     {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
             {
                 path:'manage-scholarship',
                 element:<ModeratorRoute><ManageScholarship></ManageScholarship></ModeratorRoute>
+            },
+            {
+                path:'chart',
+                element:<ModeratorRoute><Chart></Chart></ModeratorRoute>
             },
         ]
     },
