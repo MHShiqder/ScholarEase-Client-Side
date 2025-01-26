@@ -8,31 +8,61 @@ ScholarEase is a modern web application built with React, crafted to simplify th
 
 ## Key Features
 
-### 1. **User Authentication**
-- Integrated with Firebase for secure login and registration.
-- Allows users to sign up, log in, and manage their accounts safely.
 
-### 2. **Scholarship Listing**
-- Displays a list of all available scholarships with key details like deadlines, cost, and application status.
+### **User Account Management**
+- Users can register and log in securely with JWT authentication.
+- Profiles display user details, including their role (admin, applicant, etc.).
 
-### 3. **Application Management**
-- Users can apply for scholarships directly from the platform.
-- Administrators can track or reject applications.
+### **Scholarship Listings**
+- Display scholarships fetched from the backend in a well-organized manner.
+- Provide search functionality (by university, scholarship name, or degree) with case-insensitive matching.
+- Show real-time aggregated scholarship ratings based on user reviews.
 
-### 4. **Dynamic Search Functionality**
-- Users can search scholarships by University Name, Scholarship Name or Degree Name
-- Search options make it easy to organize data based on user preferences.
+### **Scholarship Details**
+- Detailed pages for each scholarship include all relevant information (e.g., university, degree, application fee, deadline).
+- Display reviews and ratings for the selected scholarship.
+- Allow logged-in users to submit reviews or ratings.
 
-### 5. **Feedback System**
-- Allows administrators to provide feedback to applicants regarding their application status or improvements needed.
+### **Apply for Scholarships**
+- Users can apply for scholarships directly from the scholarship details page.
+- Display a personalized dashboard to track users' applied scholarships.
+- Provide options to edit or delete applications.
 
-### 6. **Data Visualization**
+### **Review Management**
+- Logged-in users can leave reviews for scholarships they've applied for.
+- Users can edit or delete their reviews from the dashboard.
+- Reviews are aggregated to update scholarship ratings in real time.
+
+### **Home Page**
+- Showcase the latest scholarships, sorted by fee or posting date.
+- Highlight top-rated scholarships and other featured content.
+
+### **Admin Panel**
+- Admins can manage users, scholarships, and applications.
+- Includes features to:
+  - Add, update, or delete scholarships.
+  - View and delete user reviews.
+  - Track all scholarship applications.
+
+### **Payment Integration**
+- Allow users to pay application fees securely using Stripe.
+- Display payment status on the user's dashboard.
+
+### **Search and Filter Options**
+- Advanced search functionality to locate scholarships easily.
+- Filters for degree, university, or application fee range.
+
+### **Responsive and User-Friendly Design**
+- The frontend is built with a responsive layout for seamless use across devices.
+- Intuitive navigation ensures a smooth user experience.
+
+### **Data Visualization**
 - Includes pie charts  (using Recharts) to visualize application statistics, such as the number of applicants per scholarship.
 
-### 7. **Responsive Design**
+### **Responsive Design**
 - Fully responsive across all devices, ensuring a seamless user experience on mobile, tablet, and desktop.
 
-### 8. **Secure API Integration**
+### **Secure API Integration**
 - Backend APIs are protected using JWT authentication and built with secure MongoDB Atlas connections to manage data.
 
 
