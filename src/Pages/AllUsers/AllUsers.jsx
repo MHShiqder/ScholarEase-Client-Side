@@ -92,6 +92,10 @@ const AllUsers = () => {
             const newUsers=users.filter(user=>user.role=="Moderator")
             setCurrentUsers(newUsers)
         }
+        else if(filterVal==="All"){
+            
+            setCurrentUsers(users)
+        }
         else{
             const newUsers=users.filter(user=>user.role=="User")
             setCurrentUsers(newUsers)
@@ -116,6 +120,7 @@ console.log(currentUsers,"users")
                             <div className="text-end mb-2">
                                 <select onChange={handleFilter} defaultValue={"Filter"} className="p-1 bg-slate-700 text-white">
                                     <option disabled value="Filter">Filter</option>
+                                    <option value="All">All</option>
                                     <option value="User">User</option>
                                     <option value="Admin">Admin</option>
                                     <option value="Moderator">Moderator</option>
