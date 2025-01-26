@@ -49,13 +49,13 @@ const DetailsPage = () => {
                             <figure>
                                 <img
                                     src={imageUrl}
-                                    alt="Shoes"
+                                    alt="University Image"
                                     className='h-64' />
                             </figure>
                             <div className="card-body">
-                                <h2 className="card-title text-3xl font-bold justify-center h-12">{university}</h2>
+                                <h2 className="card-title md:text-3xl text-xl font-bold justify-center h-12">{university}</h2>
 
-                                <div className=' text-lg'>
+                                <div className=' md:text-lg text-sm'>
                                     <p><span className=' font-medium'>Scholarship Category:</span> {category} </p>
                                     <p><span className=' font-medium'>University location:</span> {city + " , " + country} </p>
                                     <p><span className=' font-medium'> Application Deadline:</span> {deadline} </p>
@@ -88,8 +88,8 @@ const DetailsPage = () => {
                             ?
                             <Reviews thisReviews={thisReviews} ></Reviews>
                             :
-                            <div className="text-center mb-10">
-                                <h2 className="text-2xl font-semibold">No Reviews available</h2>
+                            <div className="text-center md:mb-10 mb-5">
+                                <h2 className="md:text-2xl text-lg font-semibold">No Reviews available</h2>
                             </div>
                         }
                     </div>

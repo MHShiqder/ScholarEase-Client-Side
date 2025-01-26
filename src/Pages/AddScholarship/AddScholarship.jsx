@@ -52,7 +52,7 @@ const AddScholarship = () => {
 
     const style = "border-[#79D7BE] border-b outline-none px-4 w-full py-3 focus:border-[#3B9DF8] focus:border-b-2 transition-colors duration-300 placeholder-[#2E5077] bg-white"
     return (
-        <div className='p-10 '>
+        <div className='md:p-10 p-5 pb-14 '>
             <DashboardTitle title="Add Scholarship"></DashboardTitle>
 
             <form onSubmit={handleSubmit(onSubmit)} className='grid  md:grid-cols-2 gap-5'>

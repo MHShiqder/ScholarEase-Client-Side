@@ -115,7 +115,7 @@ console.log(currentUsers,"users")
                     </>
                     :
                     <>
-                        <div className='p-5 md:p-10'>
+                        <div className='p-5 pb-14 md:p-10'>
                             <DashboardTitle title={"All Users"}></DashboardTitle>
                             <div className="text-end mb-2">
                                 <select onChange={handleFilter} defaultValue={"Filter"} className="p-1 bg-slate-700 text-white">

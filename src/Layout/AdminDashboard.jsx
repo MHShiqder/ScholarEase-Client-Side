@@ -12,7 +12,7 @@ const AdminDashboard = () => {
                 <div className="drawer-content flex flex-col bg-[#F6F4F0] ">
                     {/* Page content here */}
 
-                    <label htmlFor="my-drawer-2" role="button" className="btn bg-[#2E5077] fixed bottom-3 right-3 drawer-button rounded-none text-white  lg:hidden ">
+                    <label htmlFor="my-drawer-2" role="button" className="btn bg-[#2E5077] fixed bottom-3 right-3 drawer-button rounded-none text-white  lg:hidden z-50">
                         <RiMenu2Line className="text-2xl"></RiMenu2Line>
                     </label>
                     <Outlet></Outlet>

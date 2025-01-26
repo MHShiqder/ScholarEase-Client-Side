@@ -71,7 +71,7 @@ const AllAppliedScholarship = () => {
             })
     }
     return (
-        <div className="p-5 md:p-10">
+        <div className="p-5 pb-14 md:p-10">
             <DashboardTitle title={"All Applied Scholarship"}></DashboardTitle>
 
             <div className="text-center mb-2"> 

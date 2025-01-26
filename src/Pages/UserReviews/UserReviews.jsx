@@ -43,7 +43,7 @@ const UserReviews = () => {
             </div>
 
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mb-10">
                 <table className="table">
                     {/* head */}
                     <thead className="bg-slate-300">

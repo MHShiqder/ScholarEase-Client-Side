@@ -28,30 +28,30 @@ const Success = () => {
     })
     return (
         <div id="animateMe2" className={`bg-[#DEF9C4] w-11/12 mx-auto pb-10 bg-cover bg-right text-white px-5 my-20 animate__animated ${isVisible ? 'animate__fadeInRight' : ''}`}>
-            <h1 className="text-5xl font-bold py-10 text-center text-[#003C43]">ScholarEase Statistics</h1>
+            <h1 className="text-2xl md:text-5xl font-bold py-10 text-center text-[#003C43]">ScholarEase Statistics</h1>
             <div className="grid grid-cols-2 md:grid-cols-4 text-[#003C43] gap-5 ">
                 <div className="flex flex-col items-center  bg-[#ffffff3b]  py-10 space-y-3 border-2 border-[#003C43] ">
-                    <img className="w-14 " src="https://cdn-icons-png.flaticon.com/128/511/511587.png" alt="" />
-                    <h3 ref={ref} className="text-5xl">{inView && (<CountUp end={180}></CountUp>)}</h3>
-                    <h5 className="text-xl ">Mentors</h5>
+                    <img className="md:w-14 w-10 " src="https://cdn-icons-png.flaticon.com/128/511/511587.png" alt="" />
+                    <h3 ref={ref} className="md:text-5xl text-4xl">{inView && (<CountUp end={180}></CountUp>)}</h3>
+                    <h5 className="md:text-xl text-lg ">Mentors</h5>
                 </div>
 
                 <div className="flex flex-col items-center bg-[#ffffff3b] border-2 border-[#003C43] py-10 space-y-3 ">
-                    <img className="w-14" src="https://cdn-icons-png.flaticon.com/128/3018/3018864.png" alt="" />
-                    <h3 ref={ref} className="text-5xl">{inView && (<CountUp end={12}></CountUp>)}</h3>
-                    <h5 className="text-xl ">Categories</h5>
+                    <img className="md:w-14 w-10" src="https://cdn-icons-png.flaticon.com/128/3018/3018864.png" alt="" />
+                    <h3 ref={ref} className="md:text-5xl text-4xl">{inView && (<CountUp end={12}></CountUp>)}</h3>
+                    <h5 className="md:text-xl text-lg ">Categories</h5>
                 </div>
 
                 <div className="flex flex-col items-center bg-[#ffffff3b] border-2 border-[#003C43] py-10 space-y-3 ">
-                    <img className="w-14" src="https://cdn-icons-png.flaticon.com/128/10558/10558485.png" alt="" />
-                    <h3 ref={ref} className="text-5xl">{inView && (<CountUp end={700}></CountUp>)}</h3>
-                    <h5 className="text-xl ">Scholarships</h5>
+                    <img className="md:w-14 w-10" src="https://cdn-icons-png.flaticon.com/128/10558/10558485.png" alt="" />
+                    <h3 ref={ref} className="md:text-5xl text-4xl">{inView && (<CountUp end={700}></CountUp>)}</h3>
+                    <h5 className="md:text-xl text-lg ">Scholarships</h5>
                 </div>
 
                 <div className="flex flex-col items-center bg-[#ffffff3b] border-2 border-[#003C43] py-10 space-y-3 ">
-                    <img className="w-14" src="https://cdn-icons-png.flaticon.com/128/2947/2947660.png" alt="" />
-                    <h3 ref={ref} className="text-5xl">{inView && (<CountUp end={58}></CountUp>)}</h3>
-                    <h5 className="text-xl ">Countries</h5>
+                    <img className="md:w-14 w-10" src="https://cdn-icons-png.flaticon.com/128/2947/2947660.png" alt="" />
+                    <h3 ref={ref} className="md:text-5xl text-4xl">{inView && (<CountUp end={58}></CountUp>)}</h3>
+                    <h5 className="md:text-xl text-lg ">Countries</h5>
                 </div>
 
             </div>

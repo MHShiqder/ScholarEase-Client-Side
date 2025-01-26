@@ -16,13 +16,13 @@ const ScholarshipCard = ({ item }) => {
                 <div className="card-body">
                     <h2 className="card-title justify-center h-12">{university}</h2>
 
-                    <div className='text-start text-base h-44'>
+                    <div className='md:text-start text-sm md:text-base h-44'>
                         <p><span className=' font-medium'>Scholarship Category:</span> {category} </p>
                         <p><span className=' font-medium'>University location:</span> {city + " , " + country} </p>
                         <p><span className=' font-medium'> Application Deadline:</span> {deadline} </p>
                         <p><span className=' font-medium'>Subject Category:</span> {subject} </p>
                         <p><span className=' font-medium'>Application Fees:</span> {applicationFee} </p>
-                        <p className='flex items-center'>
+                        <p className='flex items-center justify-center md:justify-start'>
                             <span className=' font-medium'>Rating:</span>
                             <Rating
                                 style={{ maxWidth: 100 }}

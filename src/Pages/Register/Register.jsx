@@ -53,15 +53,15 @@ const Register = () => {
         })
 }
     return (
-        <div className="w-11/12 mx-auto py-10">
+        <div className="w-11/12 mx-auto p-0 md:py-10">
             <div className="hero  min-h-screen">
                 <div className="hero-content flex-col gap-10 lg:flex-row">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold text-center">Sign Up now!</h1>
-                        <Lottie className='w-[450px]' animationData={registerLottie} loop={true}></Lottie>
+                        <Lottie className='w-64 md:w-[450px]' animationData={registerLottie} loop={true}></Lottie>
                     </div>
                     <div className="card bg-base-100 border-4 w-full max-w-sm shrink-0 shadow-xl rounded-none">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body px-2 md:px-8">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

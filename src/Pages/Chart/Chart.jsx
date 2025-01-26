@@ -29,27 +29,32 @@ const Chart = () => {
       
       const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
     return (
-        <div className='flex items-center justify-center flex-col'> 
+        <div className='flex items-center justify-center flex-col p-10 pb-20  '> 
            
-        <PieChart width={500} height={400}>
-        <Pie
-        data={result}
-        dataKey="value"
-        nameKey="name"
-        cx="50%" // Center x-position
-        cy="50%" // Center y-position
-        outerRadius={100} // Radius of the pie chart
-        fill="#8884d8"
-        label={renderLabel} // Adds labels to slices
-      >
-        {result.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-          <Tooltip />
-        </PieChart>
+           <div className='w-full md:h-96 h-[500px]'> {/* Set a fixed height for the parent */}
+        <ResponsiveContainer>
+          <PieChart>
+            <Pie
+              data={result}
+              dataKey="value"
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              outerRadius={100}
+              fill="#8884d8"
+              label
+            >
+              {result.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
       <div>
-        <h3 className='text-2xl font-bold text-center'>Ratio of students applied in an university</h3>
+        <h3 className='md:text-2xl text-lg font-bold text-center mt-10'>Ratio of students applied in an university</h3>
       </div>
         </div>
     );

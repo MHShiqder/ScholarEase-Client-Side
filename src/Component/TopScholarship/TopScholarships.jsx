@@ -14,13 +14,13 @@ const TopScholarships = () => {
    
     return (
         <div className='text-center w-11/12 mx-auto'>
-            <h2 className='text-5xl bg-[#2E5077 ] font-bold my-10'>Top Scholarship</h2>
+            <h2 className='text-3xl md:text-5xl bg-[#2E5077 ] font-bold my-10'>Top Scholarship</h2>
             {
                 isLoading
                     ?
                     <>
                         <div className=' flex justify-center items-center h-72'>
-                            <progress className="progress w-80 "></progress>
+                            <progress className="progress w-48 md:w-80 "></progress>
                         </div>
                     </>
                     :
