@@ -31,7 +31,7 @@ const DetailsPage = () => {
             return result.data;
         }
     })
-    const { applicationFee, category, city, country, deadline, postDate, rank, scholarship: scholarshipName, serviceCharge, subject, _id, university, imageUrl, details,ratingCount,ratingTotal } = scholarship;
+    const { applicationFee, category, city, country, deadline, postDate, rank, scholarship: scholarshipName, serviceCharge, subject, _id, university, imageUrl, details, ratingCount, ratingTotal } = scholarship;
     return (
         <div>
             {
@@ -70,9 +70,9 @@ const DetailsPage = () => {
                                     }
                                     <p className="flex flex-col md:flex-row items-center justify-center gap-2"><span className=' font-medium'>Rating: </span><Rating
                                         style={{ maxWidth: 100 }}
-                                        value={ratingTotal/ratingCount}
+                                        value={ratingTotal / ratingCount}
                                         readOnly
-                                    />  ({ratingTotal/ratingCount||0}) </p>
+                                    />  ({ratingTotal / ratingCount || 0}) </p>
 
                                 </div>
 
@@ -82,8 +82,16 @@ const DetailsPage = () => {
                             </div>
                         </div>
                         {/* TODO: */}
-                        <DashboardTitle title={"Ratings"}></DashboardTitle>
-                        <Reviews thisReviews={thisReviews} ></Reviews>
+                        <DashboardTitle title={"Reviews"}></DashboardTitle>
+                        {
+                            thisReviews.length
+                            ?
+                            <Reviews thisReviews={thisReviews} ></Reviews>
+                            :
+                            <div className="text-center mb-10">
+                                <h2 className="text-2xl font-semibold">No Reviews available</h2>
+                            </div>
+                        }
                     </div>
 
             }
