@@ -112,5 +112,76 @@ pages of the application.
 - Enables interactive sliders for a sleek and modern user experience.
 
 
+# Local Installation
+
+This guide provides step-by-step instructions on how to run the ScholarEase client-side project locally.
+
+## Prerequisites
+
+Before setting up the project, ensure you have the following installed:
+
+- **Node.js**: Download and install from [Node.js Official Website](https://nodejs.org/)
+- **Git**: Download and install from [Git Official Website](https://git-scm.com/)
+
+Verify installations by running:
+
+```bash
+node -v
+npm -v
+git --version
+```
+
+## Installation Steps
+
+### 1. Clone the Repository
+
+Open your terminal or command prompt and run:
+
+```bash
+git clone https://github.com/MHShiqder/ScholarEase-Client-Side.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd ScholarEase-Client-Side
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env` file in the root directory and add the necessary environment variables based on the project's requirements.
+
+### 5. Start the Development Server
+
+Run the following command to start the application:
+
+```bash
+npm run dev
+```
+
+The project should now be running locally. Open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+## Additional Notes
+
+- Ensure that any required backend services or APIs are running and correctly configured.
+- If you encounter any issues, refer to the project's GitHub repository for further guidance.
+
+For more details, visit: [ScholarEase-Client-Side](https://github.com/MHShiqder/ScholarEase-Client-Side).
+
+
+
+
+
+
 
 
