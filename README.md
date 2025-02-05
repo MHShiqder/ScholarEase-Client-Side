@@ -155,7 +155,16 @@ npm install
 
 ### 4. Configure Environment Variables
 
-Create a `.env` file in the root directory and add the necessary environment variables based on the project's requirements.
+Create a `.env.local` file in the root directory and add the following environment variables:
+
+VITE_apiKey=AIzaSyDZuhQw2j8T1qQEf3zFiz5tCVuUnzmaLNU
+VITE_authDomain=scholarease-52ab0.firebaseapp.com
+VITE_projectId=scholarease-52ab0
+VITE_storageBucket=scholarease-52ab0.firebasestorage.app
+VITE_messagingSenderId=92057183444
+VITE_appId=1:92057183444:web:3f185640bef3522bd08741
+VITE_image_hosting_key=6e71ab646af548986c38ec58c5de8c24
+VITE_payment_gateway_key=pk_test_51QihUoGEdHIuFAgnmtFr16zrFphbpIPzxQvecnA4HPN50IXMzHWWURsjWGha284DHbo3nwMJPT5ddHUswQTsXtbv00SzK9Ihcs
 
 ### 5. Start the Development Server
 
@@ -165,18 +174,8 @@ Run the following command to start the application:
 npm run dev
 ```
 
-The project should now be running locally. Open your browser and visit:
+The project should now be running locally.
 
-```
-http://localhost:3000
-```
-
-## Additional Notes
-
-- Ensure that any required backend services or APIs are running and correctly configured.
-- If you encounter any issues, refer to the project's GitHub repository for further guidance.
-
-For more details, visit: [ScholarEase-Client-Side](https://github.com/MHShiqder/ScholarEase-Client-Side).
 
 
 
