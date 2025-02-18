@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import navLogo from '../assets/NavLogo.png'
+import navLogo from '../assets/navLogoNew.png'
 import useAuth from "../Hooks/useAuth";
 import useRole from "../Hooks/useRole";
 
@@ -8,9 +8,9 @@ const Header = () => {
     const { user, signOutUser } = useAuth()
     const [singleUser]=useRole()
     const links = <>
-        <li><NavLink to='/' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Home</NavLink></li>
+        <li><NavLink to='/' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-lora px-3 py-1 '}>Home</NavLink></li>
 
-        <li><NavLink to='/all-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>All_Scholarship</NavLink></li>
+        <li><NavLink to='/all-scholarship' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-lora px-3 py-1 '}>All_Scholarship</NavLink></li>
 
         {
             user
@@ -20,32 +20,32 @@ const Header = () => {
                         singleUser?.role=="Admin"||singleUser?.role=="Moderator"
                             ?
                             <>                               
-                                <li><NavLink to='/adminDashboard/user-profile' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 md:ml-2  font-serif px-3 py-1 '}>Admin_Dashboard</NavLink></li>
+                                <li><NavLink to='/adminDashboard/user-profile' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 md:ml-2  font-lora px-3 py-1 '}>Admin_Dashboard</NavLink></li>
                             </>
                             :
                             <>
-                             <li><NavLink to='/userDashboard/user-profile' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>User_Dashboard</NavLink></li>
+                             <li><NavLink to='/userDashboard/user-profile' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-lora px-3 py-1 '}>User_Dashboard</NavLink></li>
                             </>
                     }
 
 
-                    <li onClick={() => { signOutUser() }}><NavLink to='' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Logout</NavLink></li>
+                    <li onClick={() => { signOutUser() }}><NavLink to='' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-lora px-3 py-1 '}>Logout</NavLink></li>
                     <div className="md:bg-green-700 py-1 px-3 md:flex gap-2 items-center md:ml-4 ml-6 rounded-l-full">
                         <img className="h-10 w-10 rounded-full  border object-contain" src={user?.photoURL} alt="" />
-                        <p className="font-bold">{user?.displayName}</p>
+                        <p className=" font-lora">{user?.displayName}</p>
                     </div>
                 </>
                 :
                 <>
-                    <li><NavLink to='/login' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-serif px-3 py-1 '}>Login</NavLink></li>
+                    <li><NavLink to='/login' className={'text-base text-white   hover:border-b-2 hover:border-t-2 hover:border-green-400 ml-6 font-lora px-3 py-1 '}>Login</NavLink></li>
                 </>
         }
 
     </>
     return (
-        <div className="sticky bg-[#123524]  bg-opacity-90 top-0 z-50">
-            <div className="navbar w-11/12 mx-auto  text-white">
-                <div className="navbar-start md:w-1/5">
+        <div className="sticky bg-primary   top-0 z-50">
+            <div className="navbar w-11/12 mx-auto  text-white  px-0">
+                <div className="navbar-start md:w-1/5 ">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg

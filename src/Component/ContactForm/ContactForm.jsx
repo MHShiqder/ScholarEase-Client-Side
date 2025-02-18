@@ -12,7 +12,7 @@ const ContactForm = () => {
             <aside className="w-full bg-[#1E1E1E] flex flex-col justify-between p-[25px] rounded-none">
 
                 <div>
-                    <h1 className="text-[2rem] font-[600] leading-[35px] text-white">Contact
+                    <h1 className="text-[2rem] font-[600] leading-[35px] font-lora text-white">Contact
                         Information</h1>
                     <p className="text-[0.9rem] mt-1 mb-8 text-white">Say something to start a live
                         chat!</p>

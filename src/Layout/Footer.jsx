@@ -1,5 +1,5 @@
 import { FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
-import logo from '../assets/NavLogo.png'
+import logo from '../assets/navLogoNew.png'
 const Footer = () => {
     return (
         <div className="bg-[#123524] ">

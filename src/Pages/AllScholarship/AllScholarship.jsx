@@ -48,7 +48,7 @@ const [currentPage,setCurrentPage]=useState(0)
     }
     return (
         <div className='text-center w-11/12 mx-auto'>
-            <h2 className='md:text-5xl text-3xl bg-[#2E5077 ] font-bold my-10'>All Scholarship</h2>
+            <h2 className='md:text-5xl text-3xl bg-[#2E5077 ] font-bold my-10 font-lora'>All Scholarship</h2>
             {
                 isLoading
                     ?

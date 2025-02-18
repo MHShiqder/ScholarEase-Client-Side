@@ -28,7 +28,7 @@ const Success = () => {
     })
     return (
         <div id="animateMe2" className={`bg-[#DEF9C4] w-11/12 mx-auto pb-10 bg-cover bg-right text-white px-5 my-20 animate__animated ${isVisible ? 'animate__fadeInRight' : ''}`}>
-            <h1 className="text-2xl md:text-5xl font-bold py-10 text-center text-[#003C43]">ScholarEase Statistics</h1>
+            <h1 className="text-2xl md:text-5xl font-bold py-10 text-center font-lora text-[#003C43]">ScholarEase Statistics</h1>
             <div className="grid grid-cols-2 md:grid-cols-4 text-[#003C43] gap-5 ">
                 <div className="flex flex-col items-center  bg-[#ffffff3b]  py-10 space-y-3 border-2 border-[#003C43] ">
                     <img className="md:w-14 w-10 " src="https://cdn-icons-png.flaticon.com/128/511/511587.png" alt="" />
