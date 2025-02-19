@@ -21,6 +21,7 @@ import ManageScholarship from "../Pages/ManageScholarship/ManageScholarship";
 import AdminRoute from "./AdminRoute";
 import ModeratorRoute from "./ModeratorRoute";
 import Chart from "../Pages/Chart/Chart";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>,
+            },
+            {
+                path: '/aboutUs',
+                element: <AboutUs></AboutUs>,
             },
             {
                 path: '/all-scholarship',

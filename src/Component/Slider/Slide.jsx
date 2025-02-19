@@ -28,7 +28,7 @@ const Slide = ({ Heading, image, Bold, subHeading}) => {
                         transition={{ duration: 1 }}
                         className="w-32"
                     >
-                        <Link className=' bg-primary/90 px-1 py-1 md:py-2 rounded-md w-full md:w-36 lg:text-base text-sm text-white  mt-2 md:mt-3 lg:mt-5  flex justify-around items-center hover:scale-105' to="all-scholarship">Explore Now <span><FaArrowRight></FaArrowRight></span> </Link>
+                        <Link className=' bg-gradient-to-br from-primary to-indigo-700 px-1 py-1 md:py-2 rounded-full w-full md:w-36 lg:text-sm font-medium text-sm text-white  mt-2 md:mt-3 lg:mt-5  flex justify-center gap-1 items-center hover:scale-105' to="all-scholarship">Explore Now <span><FaArrowRight></FaArrowRight></span> </Link>
                     </motion.button>
                 </div>
             </div>

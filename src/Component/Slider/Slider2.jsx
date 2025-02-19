@@ -25,7 +25,7 @@ const Slider2 = () => {
                 fadeEffect={{ crossFade: false, }}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 3000,
+                    delay: 2500,
                     disableOnInteraction: true,
                 }}
                 loop={true}
