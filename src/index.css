@@ -9,3 +9,15 @@
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.292);
     color: transparent;
 }
+
+.swiper-pagination-bullet {
+    background-color: white !important; /* Change bullet color */
+    width: 10px !important;
+    height: 10px !important;
+    opacity: 0.7 !important;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #FFD700 !important; /* Active bullet color */
+    opacity: 1 !important;
+  }
