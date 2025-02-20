@@ -32,7 +32,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="py-16 w-11/12 mx-auto text-center">
+    <section className="pb-20 w-11/12 mx-auto text-center">
       <h2 className="text-4xl font-extrabold mb-6 text-gray-800">Meet Our Team</h2>
       <p className="text-gray-600 mb-12 max-w-3xl mx-auto">
         A group of passionate individuals dedicated to making scholarship management seamless and efficient.
