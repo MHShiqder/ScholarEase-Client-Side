@@ -48,7 +48,7 @@ const [currentPage,setCurrentPage]=useState(0)
     }
     return (
         <div className='text-center w-11/12 mx-auto'>
-            <h2 className='md:text-5xl text-3xl bg-[#2E5077 ] font-bold my-10 font-lora'>All Scholarship</h2>
+            <h2 className='md:text-5xl text-3xl text-[#320a4e] font-bold my-10 font-lora'>All Scholarship</h2>
             {
                 isLoading
                     ?
@@ -59,13 +59,12 @@ const [currentPage,setCurrentPage]=useState(0)
                     </>
                     :
                     <>
-                        <div className='mb-5'>
-                            <div><p className='mb-2 md:text-sm text-xs '>Search with University Name, Scholarship Name or Degree Name</p></div>
-                            <div className='flex flex-col md:flex-row justify-center items-center gap-2 md:gap-0'>
+                        <div className='mb-8'>
+                            <div className='flex flex-col md:flex-row justify-center items-center gap-2 '>
                                 {/* onKeyUp={handleSearch} */}
-                                <input ref={searchRef} className='input input-bordered rounded-none focus:outline-none border-[#15AE5C] focus:border-sky-500 focus:border-2' type="search" name="" id="" />
+                                <input ref={searchRef} placeholder="Search by university, scholarship, or degree..." className='input input-bordered rounded-lg md:w-[500px] focus:outline-none border-primary focus:border-[#320a4e]' type="search" name="" id="" />
 
-                                <input onClick={handleSearch} type="submit" className='py-2.5 px-6 bg-[#15AE5C] border-[#15AE5C] border-2 transition-all duration-300 hover:border-sky-500  md:border-l-0 hover:text-gray-800 hover:bg-transparent text-white rounded-none hover:cursor-pointer' value={"Search"} />
+                                <input onClick={handleSearch} type="submit" className='py-2 px-6 bg-primary transition-all duration-200 hover:bg-[#320a4e] text-white rounded-full hover:cursor-pointer' value={"Search"} />
                             </div>
 
                         </div>
@@ -96,7 +95,7 @@ const [currentPage,setCurrentPage]=useState(0)
                                 pages.map(page =>
                                 <button 
                                 onClick={()=>handlePage(page+1)}
-                                className={currentPage==page?'bg-green-600 btn rounded-none mr-2':'btn rounded-none mr-2'} 
+                                className={currentPage==page?'bg-secondary/80 btn rounded-lg mr-2':'btn rounded-lg mr-2'} 
                                 key={page}
                                 >{page+1}</button>)
                             }
