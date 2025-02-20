@@ -62,9 +62,9 @@ const [currentPage,setCurrentPage]=useState(0)
                         <div className='mb-8'>
                             <div className='flex flex-col md:flex-row justify-center items-center gap-2 '>
                                 {/* onKeyUp={handleSearch} */}
-                                <input ref={searchRef} placeholder="Search by university, scholarship, or degree..." className='input input-bordered rounded-lg md:w-[500px] focus:outline-none border-primary focus:border-[#320a4e]' type="search" name="" id="" />
+                                <input ref={searchRef} placeholder="Search by university, scholarship, or degree..." className='input input-bordered rounded-lg md:w-[500px] focus:outline-none border-[#320a4e] focus:border-secondary' type="search" name="" id="" />
 
-                                <input onClick={handleSearch} type="submit" className='py-2 px-6 bg-primary transition-all duration-200 hover:bg-[#320a4e] text-white rounded-full hover:cursor-pointer' value={"Search"} />
+                                <input onClick={handleSearch} type="submit" className='py-2 px-6 bg-[#320a4e] transition-all duration-200 hover:bg-primary text-white rounded-full hover:cursor-pointer' value={"Search"} />
                             </div>
 
                         </div>
