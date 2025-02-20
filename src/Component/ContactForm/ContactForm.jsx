@@ -9,7 +9,7 @@ const ContactForm = () => {
         <section className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[35px] boxShadow  mb-20 rounded-none">
 
             {/*  information  */}
-            <aside className="shadow-[0px_0px_20px] shadow-primary/50 flex flex-col justify-between p-[25px]  lg:m-10 lg:mt-0 rounded-lg">
+            <aside className="shadow-[0px_10px_20px] shadow-primary/40 flex flex-col justify-between p-[25px]  lg:m-10 lg:mt-0 rounded-lg">
 
                 <div>
                     <h1 className="text-[2rem] font-[600] leading-[35px] font-lora text-[#320a4e]">Contact
