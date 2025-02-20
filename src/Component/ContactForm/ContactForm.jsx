@@ -9,16 +9,16 @@ const ContactForm = () => {
         <section className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[35px] boxShadow  mb-20 rounded-none">
 
             {/*  information  */}
-            <aside className="w-full bg-gradient-to-r to-primary from-indigo-700 flex flex-col justify-between p-[25px] rounded-none">
+            <aside className="shadow-[0px_0px_20px] shadow-primary/50 flex flex-col justify-between p-[25px]  lg:m-10 lg:mt-0 rounded-lg">
 
                 <div>
-                    <h1 className="text-[2rem] font-[600] leading-[35px] font-lora text-white">Contact
+                    <h1 className="text-[2rem] font-[600] leading-[35px] font-lora text-[#320a4e]">Contact
                         Information</h1>
-                    <p className="text-[0.9rem] mt-1 mb-8 text-white">Say something to start a live
+                    <p className="text-[0.9rem] mt-1 mb-8 text-[#320a4e]">Say something to start a live
                         chat!</p>
                 </div>
 
-                <div className="flex flex-col gap-[20px] text-gray-100">
+                <div className="flex flex-col gap-[20px] text-gray-700">
                     <p className="flex items-center gap-[8px]">
                         <MdOutlineCall />
                         +880123456768
@@ -34,16 +34,16 @@ const ContactForm = () => {
                 </div>
 
                 <div className="flex gap-[15px] flex-wrap text-black mt-8">
-                    <a className="text-[1.3rem] p-1.5 cursor-pointer rounded-full bg-white text-primary   hover:text-orange-500 transition-all duration-300  boxShadow">
+                    <a className="text-[1.3rem] p-1.5 cursor-pointer rounded-full bg-primary text-white    hover:text-orange-500 transition-all duration-300  boxShadow">
                         <CgFacebook/>
                     </a>
-                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full  bg-white text-primary  hover:text-orange-500 transition-all duration-300 boxShadow">
+                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full  bg-primary text-white   hover:text-orange-500 transition-all duration-300 boxShadow">
                         <BsTwitter/>
                     </a>
-                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full bg-white text-primary  hover:text-orange-500 transition-all duration-300  boxShadow">
+                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full bg-primary text-white   hover:text-orange-500 transition-all duration-300  boxShadow">
                         <BsInstagram/>
                     </a>
-                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full  bg-white  text-primary hover:text-orange-500 transition-all duration-300 boxShadow">
+                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full  bg-primary text-white  hover:text-orange-500 transition-all duration-300 boxShadow">
                         <BsLinkedin/>
                     </a>
                 </div>
