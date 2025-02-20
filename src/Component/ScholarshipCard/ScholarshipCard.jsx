@@ -52,7 +52,7 @@ const ScholarshipCard = ({ item }) => {
                             </div>
                         </div>
 
-                        <Link to={`/details/${_id}`}><button className="bg-gradient-to-br from-primary to-indigo-700 text-white text-sm font-medium px-4 py-1.5 rounded-full hover:bg-indigo-700 transition-colors">Details</button>
+                        <Link to={`/details/${_id}`}><button className="bg-indigo-600 text-white text-sm font-medium px-4 py-1.5 rounded-full hover:bg-primary transition-colors">Details</button>
                         </Link>
                     </div>
                 </div>
