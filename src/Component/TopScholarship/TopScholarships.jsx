@@ -15,7 +15,7 @@ const TopScholarships = () => {
    
     return (
         <div className='text-center w-11/12 mx-auto bg-gradient-to-br from-indigo-50 via-white to-purple-100 px-5 py-10 mt-20'>
-            <h2 className='text-3xl text-[#320a4e] md:text-5xl bg-[#2E5077 ] font-bold font-lora mb-10'>Top Scholarships</h2>
+            <h2 className='text-3xl text-[#320a4e] md:text-4xl bg-[#2E5077 ] font-bold font-lora mb-10'>Top Scholarships</h2>
             
             {
                 isLoading
