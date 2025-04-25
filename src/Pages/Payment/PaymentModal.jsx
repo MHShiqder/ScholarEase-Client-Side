@@ -102,7 +102,7 @@ const PaymentModal = ({ info }) => {
                             <span className=''>Gender*</span>
                             <select required defaultValue={"default"}  {...register("gender")} className={style}>
                                 <option className='text-black' value="default" disabled>--Select Gender--</option>
-                                <option className='text-black' value="Male" >Male</option>
+                                <option className='text-black' value="Male" >Male </option>
                                 <option className='text-black' value="Female" >Female</option>
 
                             </select>
