@@ -105,7 +105,7 @@ const ManageScholarship = () => {
                                         </td>
 
                                         <UpdateScholarshipModal refetch={refetch} item={item}></UpdateScholarshipModal>
-                                    </tr>
+                                    </tr> 
 
                                 )}
                             </tbody>
