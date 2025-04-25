@@ -54,7 +54,7 @@ const Chart = () => {
         </ResponsiveContainer>
       </div>
       <div>
-        <h3 className='md:text-2xl text-lg font-bold text-center mt-10'>Ratio of students applied in an university</h3>
+        <h3 className='md:text-2xl text-lg font-bold text-center mt-10'>Ratio of  students applied in an university</h3>
       </div>
         </div>
     );
