@@ -19,30 +19,30 @@ const AdminDashboard = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-[#2E5077] text-base-content min-h-full md:w-72 w-56 p-4 gap-2">
+                    <ul className="menu bg-[#320a4e] text-base-content min-h-full md:w-72 w-56 p-4 gap-2">
                         {/* Sidebar content here */}
 
-                        <li><Link to="/adminDashboard/user-profile" className={"bg-[#4DA1A9] text-white rounded-none"}>My Profile</Link></li>
+                        <li><Link to="/adminDashboard/user-profile" className={"bg-primary hover:bg-secondary/80  text-white rounded-none"}>My Profile</Link></li>
 
                         {
-                            singleUser.role=="Admin"&&<li><Link to="/adminDashboard/all-users" className={"bg-[#4DA1A9] text-white rounded-none"}>All Users </Link></li>
+                            singleUser.role=="Admin"&&<li><Link to="/adminDashboard/all-users" className={"bg-primary hover:bg-secondary/80  text-white rounded-none"}>All Users </Link></li>
                         }
 
-                        <li><Link to="/adminDashboard/all-review" className={"bg-[#4DA1A9] text-white rounded-none"}>All Review</Link></li>
+                        <li><Link to="/adminDashboard/all-review" className={"bg-primary hover:bg-secondary/80  text-white rounded-none"}>All Review</Link></li>
 
-                        <li><Link to="/adminDashboard/all-appliedScholarship" className={"bg-[#4DA1A9] text-white rounded-none"}>All Applied Scholarship</Link></li>
+                        <li><Link to="/adminDashboard/all-appliedScholarship" className={"bg-primary hover:bg-secondary/80  text-white rounded-none"}>All Applied Scholarship</Link></li>
 
-                        <li><Link to="/adminDashboard/manage-scholarship" className={"bg-[#4DA1A9] text-white rounded-none"}>Manage Scholarship</Link></li>
+                        <li><Link to="/adminDashboard/manage-scholarship" className={"bg-primary hover:bg-secondary/80  text-white rounded-none"}>Manage Scholarship</Link></li>
 
-                        <li><Link to="/adminDashboard/add-scholarship" className={"bg-[#4DA1A9] text-white rounded-none"}>Add Scholarship</Link></li>
+                        <li><Link to="/adminDashboard/add-scholarship" className={"bg-primary hover:bg-secondary/80  text-white rounded-none"}>Add Scholarship</Link></li>
 
-                        <li><Link to="/adminDashboard/chart" className={"bg-[#4DA1A9] text-white rounded-none"}>Analytics</Link></li>
+                        <li><Link to="/adminDashboard/chart" className={"bg-primary hover:bg-secondary/80  text-white rounded-none"}>Overview</Link></li>
 
 
                         <div className=" border-b-2 my-5 border-[#4DA1A9]"></div>
 
 
-                        <li><Link to="/" className={"bg-[#4DA1A9] text-white rounded-none"}>Home</Link></li>
+                        <li><Link to="/" className={"bg-primary hover:bg-secondary/80  text-white rounded-none"}>Home</Link></li>
 
                     </ul>
                 </div>

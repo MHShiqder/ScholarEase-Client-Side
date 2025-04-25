@@ -109,7 +109,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'chart',
-                element:<ModeratorRoute><Chart></Chart></ModeratorRoute>
+                element:<Chart></Chart>
             },
         ]
     },

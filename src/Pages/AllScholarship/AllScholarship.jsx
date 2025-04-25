@@ -18,22 +18,32 @@ const AllScholarship = () => {
     const [currentScholarship, setCurrentScholarship] = useState([])
     useEffect(() => {
         if (!isLoading) {
-            const range=scholarships.slice(0,5)
+            const range = scholarships.slice(0, 5)
             console.log(range)
             setCurrentScholarship(range)
         }
     }, [scholarships])
-const [currentPage,setCurrentPage]=useState(0)
-    const handlePage=(pageNo)=>{
-        setCurrentPage(pageNo-1)
-        const max=(pageNo*5);
-        const min=(pageNo*5)-5;
-        console.log(min,max,"minmax")
-        
-        const range=scholarships.slice(min,max);
-        console.log("range",range)
+    const [currentPage, setCurrentPage] = useState(0)
+    const handlePage = (pageNo) => {
+        setCurrentPage(pageNo - 1)
+        const max = (pageNo * 5);
+        const min = (pageNo * 5) - 5;
+
+        const range = scholarships.slice(min, max);
         setCurrentScholarship(range)
 
+    }
+
+    const handleSort = e => {
+        e.preventDefault();
+        if(e.target.value=="Ascending"){
+            const newScholarship = [...scholarships].sort((a,b) => a.applicationFee-b.applicationFee);
+            setCurrentScholarship(newScholarship)
+        }
+        else{
+            const newScholarship = [...scholarships].sort((a,b) => b.applicationFee-a.applicationFee);
+            setCurrentScholarship(newScholarship)
+        }
     }
 
     const handleSearch = async (e) => {
@@ -43,8 +53,6 @@ const [currentPage,setCurrentPage]=useState(0)
         const res = await axiosPublic.get(`/searchScholarships?search=${query}`)
 
         setCurrentScholarship(res.data)
-
-
     }
     return (
         <div className='text-center w-11/12 mx-auto'>
@@ -59,10 +67,17 @@ const [currentPage,setCurrentPage]=useState(0)
                     </>
                     :
                     <>
-                        <div className='mb-8'>
+                        <div className='mb-10 md:flex md:justify-between md:items-center'>
+                            <div>
+                                <select onChange={handleSort} name="" id="" defaultValue={"Sort"} className='bg-[#320a4e] text-white rounded-lg py-2 px-3 '>
+                                    <option disabled value="Sort">Sort</option>
+                                    <option value="Ascending">Ascending</option>
+                                    <option value="Descending">Descending</option>
+                                </select>
+                            </div>
                             <div className='flex flex-col md:flex-row justify-center items-center gap-2 '>
                                 {/* onKeyUp={handleSearch} */}
-                                <input ref={searchRef} placeholder="Search by university, scholarship, or degree..." className='input input-bordered rounded-lg md:w-[500px] focus:outline-none border-[#320a4e] focus:border-secondary' type="search" name="" id="" />
+                                <input ref={searchRef} placeholder="Search by university, scholarship, or degree..." className='input input-bordered rounded-lg md:w-[500px] focus:outline-none border-[#320a4e] focus:border-secondary py-2 h-auto' type="search" name="" id="" />
 
                                 <input onClick={handleSearch} type="submit" className='py-2 px-6 bg-[#320a4e] transition-all duration-200 hover:bg-primary text-white rounded-full hover:cursor-pointer' value={"Search"} />
                             </div>
@@ -93,11 +108,11 @@ const [currentPage,setCurrentPage]=useState(0)
                         <div className='mb-10'>
                             {
                                 pages.map(page =>
-                                <button 
-                                onClick={()=>handlePage(page+1)}
-                                className={currentPage==page?'bg-secondary/80 btn rounded-lg mr-2':'btn rounded-lg mr-2'} 
-                                key={page}
-                                >{page+1}</button>)
+                                    <button
+                                        onClick={() => handlePage(page + 1)}
+                                        className={currentPage == page ? 'bg-secondary/80 btn rounded-lg mr-2' : 'btn rounded-lg mr-2'}
+                                        key={page}
+                                    >{page + 1}</button>)
                             }
                         </div>
                     </>

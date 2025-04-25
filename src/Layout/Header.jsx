@@ -2,11 +2,25 @@ import { NavLink } from "react-router-dom";
 import navLogo from '../assets/navLogoNew.png'
 import useAuth from "../Hooks/useAuth";
 import useRole from "../Hooks/useRole";
+import { useEffect, useState } from "react";
 
 
 const Header = () => {
     const { user, signOutUser } = useAuth()
     const [singleUser] = useRole()
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        return localStorage.getItem('theme') === 'dark';
+    });
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark')
+            localStorage.setItem('theme', 'dark')
+        }
+        else {
+            document.documentElement.classList.remove('dark')
+            localStorage.setItem('theme', 'light')
+        }
+    }, [isDarkMode])
     const links = <>
         <li><NavLink to='/' className={'text-base text-white    hover:text-[#FFD700]  hover:font-bold     font-lora  px-2 py-1 '}>Home</NavLink></li>
 
@@ -48,9 +62,10 @@ const Header = () => {
                 </>
         }
 
+        {/* <button onClick={()=>setIsDarkMode(!isDarkMode)} className={'text-base px-2 py-1'}>{isDarkMode ? "🌞" : "🌚"}</button> */}
     </>
     return (
-        <div className="sticky bg-primary   top-0 z-50">
+        <div className="sticky bg-primary dark:bg-secondary   top-0 z-50">
             <div className="navbar w-11/12 mx-auto  text-white  px-0">
                 <div className="navbar-start md:w-1/5 ">
                     <div className="dropdown">

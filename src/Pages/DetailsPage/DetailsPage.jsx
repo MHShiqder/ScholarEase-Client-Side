@@ -45,7 +45,7 @@ const DetailsPage = () => {
                     :
 
                     <div>
-                        <div className=" flex flex-col justify-center items-center card-compact bg-[#d0e8c5eb] p-10 rounded-none shadow-xl text-center my-10 w-11/12 md:w-2/3 mx-auto ">
+                        <div className=" flex flex-col justify-center items-center card-compact bg-primary/10 p-10 rounded-none shadow-xl text-center my-10 w-11/12 md:w-2/3 mx-auto ">
                             <figure>
                                 <img
                                     src={imageUrl}
@@ -77,7 +77,7 @@ const DetailsPage = () => {
                                 </div>
 
                                 <div className=" ">
-                                    <Link to={`/payment/${_id}`}><button className="btn px-16 bg-green-600 hover:bg-green-900 rounded-none text-white">Apply Scholarship</button></Link>
+                                    <Link to={`/payment/${_id}`}><button className="btn px-16 bg-primary hover:bg-[#320a4e] rounded-full text-white">Apply Scholarship</button></Link>
                                 </div>
                             </div>
                         </div>

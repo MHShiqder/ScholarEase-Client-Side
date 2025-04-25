@@ -7,6 +7,7 @@ import TopScholarships from '../../Component/TopScholarship/TopScholarships';
 import WhyChooseUs from '../../Component/WhyChooseUs/WhyChooseUs';
 import TeamSection from '../../Component/TeamSection/TeamSection';
 import FAQSection from '../../Component/FaqSection/FAQSection';
+import CompanySection from '../../Component/CompanySection/CompanySection';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Slider2></Slider2>
             <TopScholarships></TopScholarships>
             <Success></Success>
+            <CompanySection></CompanySection>
             <WhyChooseUs></WhyChooseUs>
             <TeamSection></TeamSection>
             <FAQSection></FAQSection>
