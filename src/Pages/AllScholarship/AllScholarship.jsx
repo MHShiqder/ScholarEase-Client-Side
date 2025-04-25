@@ -51,6 +51,7 @@ const AllScholarship = () => {
         const query = searchRef.current.value;
         console.log(query)
         const res = await axiosPublic.get(`/searchScholarships?search=${query}`)
+        
 
         setCurrentScholarship(res.data)
     }
