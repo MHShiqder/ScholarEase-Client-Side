@@ -1,13 +1,13 @@
 import { Rating } from '@smastrom/react-rating';
 import React from 'react';
-import { FaCalendarAlt, FaDollarSign, FaMapMarkerAlt, FaStar } from 'react-icons/fa';
+import { FaAngleRight, FaArrowAltCircleRight, FaArrowRight, FaCalendarAlt, FaDollarSign, FaMapMarkerAlt, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const ScholarshipCard = ({ item }) => {
     const { applicationFee, category, city, country, deadline, degree, email, postDate, rank, scholarship, serviceCharge, subject, _id, university, imageUrl, ratingTotal, ratingCount } = item;
     return (
         <div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 h-full transform hover:-translate-y-1">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 h-full  transform hover:-translate-y-1">
                 <div className="relative">
                     <img
                         src={imageUrl}
@@ -19,7 +19,7 @@ const ScholarshipCard = ({ item }) => {
                             {scholarship}
                         </h3>
                     </div>
-                    <div className="absolute top-3 right-3 bg-white/90 px-2 py-1 rounded-full flex items-center">
+                    <div className="absolute top-3 right-3 bg-black/30 text-white px-2 py-1 rounded-full flex items-center">
                         <FaStar className="text-yellow-500 mr-1 text-sm" />
                         <span className="text-sm font-medium">{isNaN((ratingTotal / ratingCount).toFixed(2)) ? 0 : (ratingTotal / ratingCount).toFixed(2)}</span>
                     </div>
@@ -52,7 +52,7 @@ const ScholarshipCard = ({ item }) => {
                             </div>
                         </div>
 
-                        <Link to={`/details/${_id}`}><button className="bg-indigo-600 text-white text-sm font-medium px-4 py-1.5 rounded-full hover:bg-primary transition-colors">Details</button>
+                        <Link to={`/details/${_id}`}><button className=" text-gray-800 border-2 border-gray-300 text-sm font-medium px-4 py-1.5 rounded-full hover:bg-primary/30 transition-colors flex items-center gap-1">Details </button>
                         </Link>
                     </div>
                 </div>

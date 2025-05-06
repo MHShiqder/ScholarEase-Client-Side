@@ -6,10 +6,10 @@ import {BsInstagram, BsLinkedin, BsTwitter} from "react-icons/bs";
 const ContactForm = () => {
 
     return (
-        <section className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[35px] boxShadow  mb-20 rounded-none">
+        <section className="w-11/12 mx-auto  lg:flex lg:justify-between lg:items-center lg:gap-14 boxShadow  mb-20 rounded-none ">
 
             {/*  information  */}
-            <aside className="shadow-[0px_10px_20px] shadow-primary/40 flex flex-col justify-between p-[25px]  lg:m-10 lg:mt-0 rounded-lg">
+            <aside className="shadow-[0px_10px_20px] shadow-primary/40 flex flex-col justify-between p-[25px] w-full lg:m-0  lg:py-14 mb-10 rounded-lg">
 
                 <div>
                     <h1 className="text-[2rem] font-[600] leading-[35px] font-lora text-[#320a4e]">Contact
@@ -33,24 +33,24 @@ const ContactForm = () => {
                     </p>
                 </div>
 
-                <div className="flex gap-[15px] flex-wrap text-black mt-8">
-                    <a className="text-[1.3rem] p-1.5 cursor-pointer rounded-full bg-primary text-white    hover:text-orange-500 transition-all duration-300  boxShadow">
+                <div className="flex gap-[15px] flex-wrap text-black mt-8 ">
+                    <a className="text-[1.3rem] p-1.5 cursor-pointer rounded-full bg-primary text-white    hover:text-secondary transition-all duration-300  boxShadow">
                         <CgFacebook/>
                     </a>
-                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full  bg-primary text-white   hover:text-orange-500 transition-all duration-300 boxShadow">
+                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full  bg-primary text-white   hover:text-secondary transition-all duration-300 boxShadow">
                         <BsTwitter/>
                     </a>
-                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full bg-primary text-white   hover:text-orange-500 transition-all duration-300  boxShadow">
+                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full bg-primary text-white   hover:text-secondary transition-all duration-300  boxShadow">
                         <BsInstagram/>
                     </a>
-                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full  bg-primary text-white  hover:text-orange-500 transition-all duration-300 boxShadow">
+                    <a className="text-[1.2rem] p-1.5 cursor-pointer rounded-full  bg-primary text-white  hover:text-secondary transition-all duration-300 boxShadow">
                         <BsLinkedin/>
                     </a>
                 </div>
             </aside>
 
             {/* form area */}
-            <form className="pt-[20px]">
+            <form className="pt-[20px] w-full">
                 <div className="flex flex-col sm:flex-row items-center gap-[30px]">
                     <div className="flex flex-col gap-[5px] w-full sm:w-[50%]">
                         <label className="text-[1rem] text-gray-700">First Name</label>

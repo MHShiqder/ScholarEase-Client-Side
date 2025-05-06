@@ -6,11 +6,12 @@ import { FaTrashAlt, FaUser } from "react-icons/fa";
 import DashboardTitle from "../../Component/DashboardTitle/DashboardTitle";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useEffect, useRef, useState } from "react";
+import loadingImage from '../../assets/navLogoNew2.png'
 
 
 const AllUsers = () => {
     const roleRef = useRef()
-    const [currentUsers,setCurrentUsers]=useState([])
+    const [currentUsers, setCurrentUsers] = useState([])
     const axiosSecure = useAxiosSecure()
     const { refetch, data: users = [], isLoading, } = useQuery({
         queryKey: ['users'],
@@ -20,9 +21,9 @@ const AllUsers = () => {
         }
 
     })
-    useEffect(()=>{
+    useEffect(() => {
         setCurrentUsers(users)
-    },[users])
+    }, [users])
 
 
 
@@ -82,26 +83,26 @@ const AllUsers = () => {
         });
     }
     const handleFilter = (e) => {
-        const filterVal=e.target.value;
+        const filterVal = e.target.value;
         console.log(filterVal)
-        if(filterVal==="Admin"){
-            const newUsers=users.filter(user=>user.role=="Admin")
+        if (filterVal === "Admin") {
+            const newUsers = users.filter(user => user.role == "Admin")
             setCurrentUsers(newUsers)
         }
-        else if(filterVal==="Moderator"){
-            const newUsers=users.filter(user=>user.role=="Moderator")
+        else if (filterVal === "Moderator") {
+            const newUsers = users.filter(user => user.role == "Moderator")
             setCurrentUsers(newUsers)
         }
-        else if(filterVal==="All"){
-            
+        else if (filterVal === "All") {
+
             setCurrentUsers(users)
         }
-        else{
-            const newUsers=users.filter(user=>user.role=="User")
+        else {
+            const newUsers = users.filter(user => user.role == "User")
             setCurrentUsers(newUsers)
         }
     }
-console.log(currentUsers,"users")
+    console.log(currentUsers, "users")
 
     return (
         <div>
@@ -109,8 +110,9 @@ console.log(currentUsers,"users")
                 isLoading
                     ?
                     <>
-                        <div className=' flex justify-center items-center h-72'>
-                            <progress className="progress w-80 "></progress>
+                        <div className=' flex justify-center items-center h-[calc(100vh-100px)]'>
+                            {/* <progress className="progress md:w-80 w-48 "></progress> */}
+                            <img src={loadingImage} alt="Loading" className='animate-pulse duration-200 w-[300px]' />
                         </div>
                     </>
                     :
@@ -158,7 +160,7 @@ console.log(currentUsers,"users")
                                                 <td>
                                                     <select
                                                         onChange={(event) => handleMakeAdmin(event, user)} name="role" id=""
-                                                        value={user.role }
+                                                        value={user.role}
                                                         ref={roleRef}
                                                         className="focus:outline-none" >
                                                         <option value="User">User</option>

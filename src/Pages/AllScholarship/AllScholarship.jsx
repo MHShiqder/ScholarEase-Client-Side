@@ -4,6 +4,7 @@ import ScholarshipCard from '../../Component/ScholarshipCard/ScholarshipCard';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import noData from '../../Lottie/NoData.json'
 import Lottie from 'lottie-react';
+import loadingImage from '../../assets/navLogoNew2.png'
 
 const AllScholarship = () => {
     const [scholarships, refetch, isLoading] = useScholarship()
@@ -18,20 +19,20 @@ const AllScholarship = () => {
     const [currentScholarship, setCurrentScholarship] = useState([])
     useEffect(() => {
         if (!isLoading) {
-            const range=scholarships.slice(0,5)
+            const range = scholarships.slice(0, 5)
             console.log(range)
             setCurrentScholarship(range)
         }
     }, [scholarships])
-const [currentPage,setCurrentPage]=useState(0)
-    const handlePage=(pageNo)=>{
-        setCurrentPage(pageNo-1)
-        const max=(pageNo*5);
-        const min=(pageNo*5)-5;
-        console.log(min,max,"minmax")
-        
-        const range=scholarships.slice(min,max);
-        console.log("range",range)
+    const [currentPage, setCurrentPage] = useState(0)
+    const handlePage = (pageNo) => {
+        setCurrentPage(pageNo - 1)
+        const max = (pageNo * 5);
+        const min = (pageNo * 5) - 5;
+        console.log(min, max, "minmax")
+
+        const range = scholarships.slice(min, max);
+        console.log("range", range)
         setCurrentScholarship(range)
 
     }
@@ -48,17 +49,19 @@ const [currentPage,setCurrentPage]=useState(0)
     }
     return (
         <div className='text-center w-11/12 mx-auto'>
-            <h2 className='md:text-5xl text-3xl text-[#320a4e] font-bold my-10 font-lora'>All Scholarship</h2>
             {
                 isLoading
                     ?
                     <>
-                        <div className=' flex justify-center items-center h-72'>
-                            <progress className="progress md:w-80 w-48 "></progress>
+                        <div className=' flex justify-center items-center h-[calc(100vh-100px)]'>
+                            {/* <progress className="progress md:w-80 w-48 "></progress> */}
+                            <img src={loadingImage} alt="Loading" className='animate-pulse duration-200 w-[300px]' />
                         </div>
                     </>
                     :
                     <>
+                        <h2 className='md:text-5xl text-3xl text-[#320a4e] font-bold my-10 font-lora'>All Scholarship</h2>
+
                         <div className='mb-8'>
                             <div className='flex flex-col md:flex-row justify-center items-center gap-2 '>
                                 {/* onKeyUp={handleSearch} */}
@@ -93,11 +96,11 @@ const [currentPage,setCurrentPage]=useState(0)
                         <div className='mb-10'>
                             {
                                 pages.map(page =>
-                                <button 
-                                onClick={()=>handlePage(page+1)}
-                                className={currentPage==page?'bg-secondary/80 btn rounded-lg mr-2':'btn rounded-lg mr-2'} 
-                                key={page}
-                                >{page+1}</button>)
+                                    <button
+                                        onClick={() => handlePage(page + 1)}
+                                        className={currentPage == page ? 'bg-secondary/80 btn rounded-lg mr-2' : 'btn rounded-lg mr-2'}
+                                        key={page}
+                                    >{page + 1}</button>)
                             }
                         </div>
                     </>

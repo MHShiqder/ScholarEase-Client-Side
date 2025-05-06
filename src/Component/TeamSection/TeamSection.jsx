@@ -21,6 +21,14 @@ const teamMembers = [
     github: "#",
   },
   {
+    name: "John Doe",
+    role: "Backend Developer",
+    image: member2,
+    linkedin: "#",
+    twitter: "#",
+    github: "#",
+  },
+  {
     name: "Jane Smith",
     role: "UI/UX Designer",
     image: member3,
@@ -37,7 +45,7 @@ export default function TeamSection() {
       <p className="text-gray-600 mb-12 max-w-3xl mx-auto">
         A group of passionate individuals dedicated to making scholarship management seamless and efficient.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 gap-12  mx-auto">
         {teamMembers.map((member, index) => (
           <div key={index} className="relative bg-white shadow-xl rounded-lg  p-8 overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-20 rounded-lg "></div>

@@ -7,7 +7,7 @@ import useScholarship from "../../Hooks/useScholarship";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import UpdateScholarshipModal from "./UpdateScholarshipModal";
-
+import loadingImage from '../../assets/navLogoNew2.png'
 
 const ManageScholarship = () => {
     const axiosSecure = useAxiosSecure()
@@ -16,7 +16,7 @@ const ManageScholarship = () => {
 
 
     const handleDelete = (id) => {
-        console.log("Id default",id)
+        console.log("Id default", id)
         axiosSecure.delete(`/scholarships?id=${id}`)
             .then(res => {
                 console.log(res.data)
@@ -47,8 +47,9 @@ const ManageScholarship = () => {
             {
                 isLoading ?
                     <>
-                        <div className=' flex justify-center items-center h-56'>
-                            <progress className="progress w-80 "></progress>
+                        <div className=' flex justify-center items-center h-[calc(100vh-100px)]'>
+                            {/* <progress className="progress md:w-80 w-48 "></progress> */}
+                            <img src={loadingImage} alt="Loading" className='animate-pulse duration-200 w-[300px]' />
                         </div>
                     </>
                     :

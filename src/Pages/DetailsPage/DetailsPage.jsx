@@ -5,6 +5,7 @@ import Reviews from "../../Component/Reviews/Reviews";
 import DashboardTitle from "../../Component/DashboardTitle/DashboardTitle";
 import { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
+import loadingImage from '../../assets/navLogoNew2.png'
 
 const DetailsPage = () => {
     const { id } = useParams()
@@ -38,8 +39,9 @@ const DetailsPage = () => {
                 isLoading
                     ?
                     <>
-                        <div className=' flex justify-center items-center h-72'>
-                            <progress className="progress w-80 "></progress>
+                        <div className=' flex justify-center items-center h-[calc(100vh-100px)]'>
+                            {/* <progress className="progress md:w-80 w-48 "></progress> */}
+                            <img src={loadingImage} alt="Loading" className='animate-pulse duration-200 w-[300px]' />
                         </div>
                     </>
                     :
@@ -85,12 +87,12 @@ const DetailsPage = () => {
                         <DashboardTitle title={"Reviews"}></DashboardTitle>
                         {
                             thisReviews.length
-                            ?
-                            <Reviews thisReviews={thisReviews} ></Reviews>
-                            :
-                            <div className="text-center md:mb-10 mb-5">
-                                <h2 className="md:text-2xl text-lg font-semibold">No Reviews available</h2>
-                            </div>
+                                ?
+                                <Reviews thisReviews={thisReviews} ></Reviews>
+                                :
+                                <div className="text-center md:mb-10 mb-5">
+                                    <h2 className="md:text-2xl text-lg font-semibold">No Reviews available</h2>
+                                </div>
                         }
                     </div>
 
