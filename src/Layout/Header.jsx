@@ -52,7 +52,8 @@ const Header = () => {
     return (
         <div className="sticky bg-primary   top-0 z-50">
             <div className="navbar w-11/12 mx-auto  text-white  px-0">
-                <div className="navbar-start md:w-1/5 ">
+                <div className="navbar-start w-full lg:w-1/5 justify-between ">
+                {/* dropdown menu  */}
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
@@ -74,8 +75,9 @@ const Header = () => {
                             {links}
                         </ul>
                     </div>
-                    <a href="/"><img className="h-14 " src={navLogo} alt="" /></a>
+                    <a href="/"><img className="max-h-10 lg:max-h-14 w-full" src={navLogo} alt="" /></a>
                 </div>
+                {/* large screen menu  */}
                 <div className="navbar-end hidden lg:flex w-4/5">
                     <ul className=" menu-horizontal px-1 items-center">
                         {links}
