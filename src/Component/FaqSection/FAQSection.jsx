@@ -36,15 +36,15 @@ export default function FAQSection() {
         <p className="text-gray-600 mb-12 max-w-3xl mx-auto">
           Have questions? We've got answers. Explore our FAQ section to learn more about how ScholarEase works.
         </p>
-        <div className="flex flex-row-reverse justify-between items-center w-full ">
+        <div className="flex  md:flex-row-reverse justify-between items-center w-full gap-5">
 
-          <div>
+          <div className="hidden lg:block">
             <Lottie animationData={FAQ} loop={true} className="w-96"></Lottie>
           </div>
 
           <div className="max-w-4xl  space-y-6 ">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white shadow-lg rounded-2xl overflow-hidden">
+              <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
                 <button
                   className="w-full flex justify-between items-center p-5 text-left text-lg font-medium text-gray-800 hover:bg-gray-100"
                   onClick={() => toggleFAQ(index)}
